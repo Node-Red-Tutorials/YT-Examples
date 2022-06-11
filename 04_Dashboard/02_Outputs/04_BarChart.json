@@ -1,0 +1,221 @@
+[
+    {
+        "id": "16f88025b63dd8ef",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Bar Chart",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "41a56987ad99a59f",
+            "565733d9a196ea1b",
+            "4da195ee24501131",
+            "b44af45c4bedc7b3",
+            "88a33b85cac5eaae",
+            "f3b6d612787eae4c"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 1232,
+        "h": 122
+    },
+    {
+        "id": "41a56987ad99a59f",
+        "type": "ui_chart",
+        "z": "f6f2187d.f17ca8",
+        "g": "16f88025b63dd8ef",
+        "name": "",
+        "group": "93fae4f98fb26898",
+        "order": 1,
+        "width": 10,
+        "height": 6,
+        "label": "12-Month Temperatures",
+        "chartType": "horizontalBar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": true,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1130,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "565733d9a196ea1b",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "16f88025b63dd8ef",
+        "name": "12-Month Temperature Data",
+        "func": "var tempData = []\n\nconst months = [\n    \"Jan\",\n    \"Feb\",\n    \"Mar\",\n    \"Apr\",\n    \"May\",\n    \"Jun\",\n    \"Jul\",\n    \"Aug\",\n    \"Sep\",\n    \"Oct\",\n    \"Nov\",\n    \"Dec\"\n]\n\nfor (i = 0; i < months.length; i++) {\n    const dataSet = {\n        \"temp\" : Math.random() * 30,\n        \"month\" : months[i]\n    }\n    tempData.push(dataSet)\n}\n\nmsg.payload = tempData\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 60,
+        "wires": [
+            [
+                "4da195ee24501131"
+            ]
+        ]
+    },
+    {
+        "id": "4da195ee24501131",
+        "type": "split",
+        "z": "f6f2187d.f17ca8",
+        "g": "16f88025b63dd8ef",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 60,
+        "wires": [
+            [
+                "b44af45c4bedc7b3"
+            ]
+        ]
+    },
+    {
+        "id": "b44af45c4bedc7b3",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "16f88025b63dd8ef",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload.month",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 60,
+        "wires": [
+            [
+                "41a56987ad99a59f"
+            ]
+        ]
+    },
+    {
+        "id": "88a33b85cac5eaae",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "16f88025b63dd8ef",
+        "name": "",
+        "group": "93fae4f98fb26898",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Show Data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "565733d9a196ea1b"
+            ]
+        ]
+    },
+    {
+        "id": "f3b6d612787eae4c",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "16f88025b63dd8ef",
+        "name": "",
+        "group": "93fae4f98fb26898",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 870,
+        "y": 100,
+        "wires": [
+            [
+                "41a56987ad99a59f"
+            ]
+        ]
+    },
+    {
+        "id": "93fae4f98fb26898",
+        "type": "ui_group",
+        "name": "Function",
+        "tab": "a07e435a3a0251e7",
+        "order": 1,
+        "disp": true,
+        "width": 10,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a07e435a3a0251e7",
+        "type": "ui_tab",
+        "name": "Chart",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
