@@ -1,0 +1,187 @@
+[
+    {
+        "id": "1f9bcff40567d4d4",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Chart",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "2057c92dc2a09d3f",
+            "c6f31a34f968c652",
+            "e0cd5049e3a7a6e7",
+            "525a30eeffaf4a1b",
+            "bb5f35b842352718"
+        ],
+        "x": 34,
+        "y": 119,
+        "w": 772,
+        "h": 162
+    },
+    {
+        "id": "2057c92dc2a09d3f",
+        "type": "ui_chart",
+        "z": "f6f2187d.f17ca8",
+        "g": "1f9bcff40567d4d4",
+        "name": "",
+        "group": "641235355f36f5d7",
+        "order": 1,
+        "width": 10,
+        "height": 6,
+        "label": "Temperatures",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 700,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c6f31a34f968c652",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "1f9bcff40567d4d4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "e0cd5049e3a7a6e7",
+                "bb5f35b842352718"
+            ]
+        ]
+    },
+    {
+        "id": "e0cd5049e3a7a6e7",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "1f9bcff40567d4d4",
+        "name": "Random Temperature Values",
+        "func": "msg.payload = Math.random() * 100\nmsg.topic = \"Temp 1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "2057c92dc2a09d3f"
+            ]
+        ]
+    },
+    {
+        "id": "525a30eeffaf4a1b",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "1f9bcff40567d4d4",
+        "name": "",
+        "group": "641235355f36f5d7",
+        "order": 3,
+        "width": 8,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Chart",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 470,
+        "y": 240,
+        "wires": [
+            [
+                "2057c92dc2a09d3f"
+            ]
+        ]
+    },
+    {
+        "id": "bb5f35b842352718",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "1f9bcff40567d4d4",
+        "name": "Random Temperature Values",
+        "func": "msg.payload = Math.random() * 100\nmsg.topic = \"Temp 2\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 200,
+        "wires": [
+            [
+                "2057c92dc2a09d3f"
+            ]
+        ]
+    },
+    {
+        "id": "641235355f36f5d7",
+        "type": "ui_group",
+        "name": "Function",
+        "tab": "864b451c064548f3",
+        "order": 1,
+        "disp": true,
+        "width": 10,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "864b451c064548f3",
+        "type": "ui_tab",
+        "name": "Chart",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
