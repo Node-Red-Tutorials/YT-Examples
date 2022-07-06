@@ -1,0 +1,208 @@
+[
+    {
+        "id": "b4cb35f407c6fd3f",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Polar Chart",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "7bfd97bedf75e679",
+            "06a7ab11ddecdac5",
+            "b129cea19422be95",
+            "83e6578f817b02be",
+            "6c69bc5d55e2dc56",
+            "e71b6d096dc9018e"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 572,
+        "h": 202
+    },
+    {
+        "id": "7bfd97bedf75e679",
+        "type": "ui_chart",
+        "z": "f6f2187d.f17ca8",
+        "g": "b4cb35f407c6fd3f",
+        "name": "",
+        "group": "c99b4d50d24216dc",
+        "order": 1,
+        "width": 10,
+        "height": 6,
+        "label": "Sales",
+        "chartType": "polar-area",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No Data Available",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 530,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "06a7ab11ddecdac5",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "b4cb35f407c6fd3f",
+        "name": "",
+        "group": "c99b4d50d24216dc",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Show Data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "83e6578f817b02be",
+                "6c69bc5d55e2dc56",
+                "e71b6d096dc9018e"
+            ]
+        ]
+    },
+    {
+        "id": "b129cea19422be95",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "b4cb35f407c6fd3f",
+        "name": "",
+        "group": "c99b4d50d24216dc",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "7bfd97bedf75e679"
+            ]
+        ]
+    },
+    {
+        "id": "83e6578f817b02be",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "b4cb35f407c6fd3f",
+        "name": "Phone Sales",
+        "func": "msg.payload = Math.random()* 100\nmsg.topic = \"Phones\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 60,
+        "wires": [
+            [
+                "7bfd97bedf75e679"
+            ]
+        ]
+    },
+    {
+        "id": "6c69bc5d55e2dc56",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "b4cb35f407c6fd3f",
+        "name": "Laptop Sales",
+        "func": "msg.payload = Math.random()* 100\nmsg.topic = \"Laptops\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 100,
+        "wires": [
+            [
+                "7bfd97bedf75e679"
+            ]
+        ]
+    },
+    {
+        "id": "e71b6d096dc9018e",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "b4cb35f407c6fd3f",
+        "name": "Tablet Sales",
+        "func": "msg.payload = Math.random()* 100\nmsg.topic = \"Tablets\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "7bfd97bedf75e679"
+            ]
+        ]
+    },
+    {
+        "id": "c99b4d50d24216dc",
+        "type": "ui_group",
+        "name": "Function",
+        "tab": "780fcd06a36f8f80",
+        "order": 1,
+        "disp": true,
+        "width": 10,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "780fcd06a36f8f80",
+        "type": "ui_tab",
+        "name": "Chart",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
