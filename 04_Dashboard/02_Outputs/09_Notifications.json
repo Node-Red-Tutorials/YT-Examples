@@ -1,0 +1,327 @@
+[
+    {
+        "id": "41e7b6bbcfa384fd",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Notifications",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "656b1925bed741ce",
+            "a9b3e2c5ea456130",
+            "1b91db2672fc7e4a",
+            "965b5b00903ef038",
+            "e63bdfbc27400376",
+            "e4a9d6af0566da27",
+            "7bec24dbb42dfb9b",
+            "95f95493941a5d52",
+            "92539e1fdf7b0df6",
+            "4fd00c9c1ded1b61"
+        ],
+        "x": 154,
+        "y": 59,
+        "w": 972,
+        "h": 222
+    },
+    {
+        "id": "656b1925bed741ce",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "41e7b6bbcfa384fd",
+        "position": "prompt",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": false,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "Cancel",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 690,
+        "y": 100,
+        "wires": [
+            [
+                "965b5b00903ef038"
+            ]
+        ]
+    },
+    {
+        "id": "a9b3e2c5ea456130",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "41e7b6bbcfa384fd",
+        "name": "",
+        "group": "d725af890aebfeb2",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start Login",
+        "tooltip": "Start the Login Process",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 100,
+        "wires": [
+            [
+                "1b91db2672fc7e4a"
+            ]
+        ]
+    },
+    {
+        "id": "1b91db2672fc7e4a",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "41e7b6bbcfa384fd",
+        "name": "Initial Login",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Login",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Please enter your Name",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 100,
+        "wires": [
+            [
+                "656b1925bed741ce"
+            ]
+        ]
+    },
+    {
+        "id": "965b5b00903ef038",
+        "type": "switch",
+        "z": "f6f2187d.f17ca8",
+        "g": "41e7b6bbcfa384fd",
+        "name": "Check Login",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Cancel",
+                "vt": "str"
+            },
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 470,
+        "y": 180,
+        "wires": [
+            [
+                "e63bdfbc27400376"
+            ],
+            [
+                "7bec24dbb42dfb9b"
+            ],
+            [
+                "92539e1fdf7b0df6"
+            ]
+        ]
+    },
+    {
+        "id": "e63bdfbc27400376",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "41e7b6bbcfa384fd",
+        "name": "Login Cancelled",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Login Cancelled",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Login Process has been Cancelled by the User",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 160,
+        "wires": [
+            [
+                "e4a9d6af0566da27"
+            ]
+        ]
+    },
+    {
+        "id": "e4a9d6af0566da27",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "41e7b6bbcfa384fd",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": false,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 950,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7bec24dbb42dfb9b",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "41e7b6bbcfa384fd",
+        "name": "Login Failed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Login Failed",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Name cant be empty",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 690,
+        "y": 200,
+        "wires": [
+            [
+                "95f95493941a5d52"
+            ]
+        ]
+    },
+    {
+        "id": "95f95493941a5d52",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "41e7b6bbcfa384fd",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": false,
+        "outputs": 1,
+        "ok": "Try Again",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 910,
+        "y": 200,
+        "wires": [
+            [
+                "1b91db2672fc7e4a"
+            ]
+        ]
+    },
+    {
+        "id": "92539e1fdf7b0df6",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "41e7b6bbcfa384fd",
+        "name": "Login Complete Message",
+        "func": "// read text in msg.payload\nconst inp = msg.payload\n\n// set notification text\nmsg.topic = \"Login Successful\"\nmsg.payload = \"Welcome \" + inp\n\n// return msg Object\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 240,
+        "wires": [
+            [
+                "4fd00c9c1ded1b61"
+            ]
+        ]
+    },
+    {
+        "id": "4fd00c9c1ded1b61",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "41e7b6bbcfa384fd",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "green",
+        "sendall": false,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1010,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d725af890aebfeb2",
+        "type": "ui_group",
+        "name": "Function",
+        "tab": "2b0c9c70b6151dd8",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2b0c9c70b6151dd8",
+        "type": "ui_tab",
+        "name": "Notification",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
