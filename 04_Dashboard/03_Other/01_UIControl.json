@@ -1,0 +1,598 @@
+[
+    {
+        "id": "88d83ae8781cdc5f",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "UI Control",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "5bb7bc73d22958e2",
+            "b65d109e62b9742c",
+            "1570a9189aa65f28",
+            "b6f23f23e0e4a7e9",
+            "1e266cb13c052457",
+            "093553457c3efcfa",
+            "2d9873851c613f05",
+            "a185523531a94082",
+            "933b1d5c2e1d041e",
+            "1ecd4e4098aedec5",
+            "3fc6768cdfc19bfc",
+            "7ae5687ce7ed80df",
+            "3e13f454fa33887e",
+            "6f56913d551b1aec",
+            "037e7cb2938108e5",
+            "5352738a0ea3dfc9",
+            "1e74c1ee2e2a5730",
+            "350e7134ab281dfd",
+            "bc1b40bdfbefb8c0",
+            "bccd4eb3e0c13414",
+            "0874701b16b89f4c"
+        ],
+        "x": 14,
+        "y": 19,
+        "w": 1172,
+        "h": 462
+    },
+    {
+        "id": "5bb7bc73d22958e2",
+        "type": "ui_ui_control",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "",
+        "events": "all",
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "b65d109e62b9742c",
+                "1570a9189aa65f28",
+                "093553457c3efcfa",
+                "1e74c1ee2e2a5730"
+            ]
+        ]
+    },
+    {
+        "id": "b65d109e62b9742c",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "SocketId",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "socketid",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 60,
+        "wires": [
+            [
+                "b6f23f23e0e4a7e9"
+            ]
+        ]
+    },
+    {
+        "id": "1570a9189aa65f28",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "SocketIp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "socketip",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 100,
+        "wires": [
+            [
+                "1e266cb13c052457"
+            ]
+        ]
+    },
+    {
+        "id": "b6f23f23e0e4a7e9",
+        "type": "ui_text",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "group": "d4e88771d9d609df",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "SocketId",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 520,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1e266cb13c052457",
+        "type": "ui_text",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "group": "d4e88771d9d609df",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "SocketIp",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "093553457c3efcfa",
+        "type": "switch",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "Check Connection Status",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "connect",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "lost",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "2d9873851c613f05"
+            ],
+            [
+                "a185523531a94082"
+            ]
+        ]
+    },
+    {
+        "id": "2d9873851c613f05",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "Session Status True",
+        "rules": [
+            {
+                "t": "set",
+                "p": "session_status",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a185523531a94082",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "Session Status False",
+        "rules": [
+            {
+                "t": "set",
+                "p": "session_status",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "933b1d5c2e1d041e",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "session_status",
+        "payloadType": "flow",
+        "x": 160,
+        "y": 400,
+        "wires": [
+            [
+                "1ecd4e4098aedec5"
+            ]
+        ]
+    },
+    {
+        "id": "1ecd4e4098aedec5",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "Session Timer",
+        "func": "// get session_status\nconst session_status = msg.payload\n\n// get counter value from context variable => set to 0 if it does not exist\nvar counter = context.get(\"counter\") || 0\n\n// check if session_status is true\nif (session_status) {\n    \n    // increase counter by 0.1\n    counter += 0.1\n    \n    // set context variable to new value\n    context.set(\"counter\", counter)\n    \n    // check if counter if greater the 0\n    if (counter > 0) {\n        // set payload to counter value\n        msg.payload = counter\n        \n        // return message object\n        return msg\n    }\n}\n\n// check if session_status is false\nif (!session_status) {\n    context.set(\"counter\", 0)\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 400,
+        "wires": [
+            [
+                "3fc6768cdfc19bfc",
+                "7ae5687ce7ed80df"
+            ]
+        ]
+    },
+    {
+        "id": "3fc6768cdfc19bfc",
+        "type": "ui_text",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "group": "d4e88771d9d609df",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Session Timer",
+        "format": "{{msg.payload.toFixed(2) + \" s\"}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 660,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7ae5687ce7ed80df",
+        "type": "switch",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "Check Timer Value",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "10",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 670,
+        "y": 360,
+        "wires": [
+            [
+                "3e13f454fa33887e"
+            ],
+            [
+                "6f56913d551b1aec"
+            ]
+        ]
+    },
+    {
+        "id": "3e13f454fa33887e",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 380,
+        "wires": [
+            [
+                "037e7cb2938108e5"
+            ]
+        ]
+    },
+    {
+        "id": "6f56913d551b1aec",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 420,
+        "wires": [
+            [
+                "037e7cb2938108e5"
+            ]
+        ]
+    },
+    {
+        "id": "037e7cb2938108e5",
+        "type": "rbe",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 1110,
+        "y": 380,
+        "wires": [
+            [
+                "bc1b40bdfbefb8c0"
+            ]
+        ]
+    },
+    {
+        "id": "5352738a0ea3dfc9",
+        "type": "ui_ui_control",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "",
+        "events": "all",
+        "x": 580,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e74c1ee2e2a5730",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "Hide Secret Group",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"UI_Control_Secret\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 220,
+        "wires": [
+            [
+                "5352738a0ea3dfc9"
+            ]
+        ]
+    },
+    {
+        "id": "350e7134ab281dfd",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "",
+        "group": "6f96ca31d3c638da",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Secret Button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "bccd4eb3e0c13414"
+            ]
+        ]
+    },
+    {
+        "id": "bc1b40bdfbefb8c0",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "Show Secret Group",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"show\":[\"UI_Control_Secret\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "5352738a0ea3dfc9"
+            ]
+        ]
+    },
+    {
+        "id": "bccd4eb3e0c13414",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "name": "Notification Text",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Thank You",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Thanks for watching",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 440,
+        "wires": [
+            [
+                "0874701b16b89f4c"
+            ]
+        ]
+    },
+    {
+        "id": "0874701b16b89f4c",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "88d83ae8781cdc5f",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 630,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "d4e88771d9d609df",
+        "type": "ui_group",
+        "name": "Function",
+        "tab": "d363a5284ba61d6f",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6f96ca31d3c638da",
+        "type": "ui_group",
+        "name": "Secret",
+        "tab": "d363a5284ba61d6f",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d363a5284ba61d6f",
+        "type": "ui_tab",
+        "name": "UI_Control",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
