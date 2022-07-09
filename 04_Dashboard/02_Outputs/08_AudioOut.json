@@ -1,0 +1,228 @@
+[
+    {
+        "id": "fd0dfb107c0e767e",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Audio Out",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "cff12b04bc4c6a83",
+            "c2828b16f50cc7b0",
+            "c6e07c149fd9523b",
+            "32416ac4cacb531c",
+            "d1f0f3ebc9d096e1",
+            "84c059b9a3be577c",
+            "7c326d74c0a9fab1"
+        ],
+        "x": 274,
+        "y": 79,
+        "w": 612,
+        "h": 162
+    },
+    {
+        "id": "cff12b04bc4c6a83",
+        "type": "ui_audio",
+        "z": "f6f2187d.f17ca8",
+        "g": "fd0dfb107c0e767e",
+        "name": "",
+        "group": "e169516c809e1bb3",
+        "voice": "com.apple.speech.synthesis.voice.daniel",
+        "always": "",
+        "x": 800,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c2828b16f50cc7b0",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "fd0dfb107c0e767e",
+        "name": "",
+        "group": "e169516c809e1bb3",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Speech",
+        "tooltip": "Speech Text",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "This is my text",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 360,
+        "y": 120,
+        "wires": [
+            [
+                "d1f0f3ebc9d096e1"
+            ]
+        ]
+    },
+    {
+        "id": "c6e07c149fd9523b",
+        "type": "ui_text_input",
+        "z": "f6f2187d.f17ca8",
+        "g": "fd0dfb107c0e767e",
+        "name": "",
+        "label": "Text To Speech",
+        "tooltip": "Enter the text you want to be read",
+        "group": "e169516c809e1bb3",
+        "order": 1,
+        "width": 10,
+        "height": 1,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "32416ac4cacb531c"
+            ]
+        ]
+    },
+    {
+        "id": "32416ac4cacb531c",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "fd0dfb107c0e767e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Text",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d1f0f3ebc9d096e1",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "fd0dfb107c0e767e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Text",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "level",
+                "pt": "msg",
+                "to": "Volume",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 120,
+        "wires": [
+            [
+                "cff12b04bc4c6a83"
+            ]
+        ]
+    },
+    {
+        "id": "84c059b9a3be577c",
+        "type": "ui_slider",
+        "z": "f6f2187d.f17ca8",
+        "g": "fd0dfb107c0e767e",
+        "name": "",
+        "label": "Volume",
+        "tooltip": "",
+        "group": "e169516c809e1bb3",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "20",
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "7c326d74c0a9fab1"
+            ]
+        ]
+    },
+    {
+        "id": "7c326d74c0a9fab1",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "fd0dfb107c0e767e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "Volume",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e169516c809e1bb3",
+        "type": "ui_group",
+        "name": "Function",
+        "tab": "f19a4278c19306dc",
+        "order": 1,
+        "disp": true,
+        "width": 10,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f19a4278c19306dc",
+        "type": "ui_tab",
+        "name": "Audio",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
