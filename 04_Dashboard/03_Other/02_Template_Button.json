@@ -1,0 +1,111 @@
+[
+    {
+        "id": "b0d3da3bfcc77ee6",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Template Button Style",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "844ca1fd94120d73",
+            "4358dd94da0d2d11",
+            "bf905065df6589d7"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 412,
+        "h": 142
+    },
+    {
+        "id": "844ca1fd94120d73",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "b0d3da3bfcc77ee6",
+        "name": "",
+        "group": "7d09ae53b0d3d684",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "btn1",
+        "icon": "",
+        "payload": "Button pressed",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "4358dd94da0d2d11"
+            ]
+        ]
+    },
+    {
+        "id": "4358dd94da0d2d11",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "b0d3da3bfcc77ee6",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "green",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Action",
+        "name": "",
+        "x": 330,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "bf905065df6589d7",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "g": "b0d3da3bfcc77ee6",
+        "group": "7d09ae53b0d3d684",
+        "name": "btn1 Style",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    /* \n    The btn1 class in the button gets added to the parent md-card of the button\n    Therfore we have to select the md-button inside as well.\n    */\n    .btn1 > .md-button {\n        background-color: rgb(255, 0, 0) !important;\n        /* add your custom css here */\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7d09ae53b0d3d684",
+        "type": "ui_group",
+        "name": "Style",
+        "tab": "040b9f517e659560",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "040b9f517e659560",
+        "type": "ui_tab",
+        "name": "Template",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
