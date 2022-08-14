@@ -1,0 +1,121 @@
+[
+    {
+        "id": "f13c49dcd9ef2f2d",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Template Dropdown Style",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "9833f685fdd98c8f",
+            "0ce948dd95516b5f",
+            "db7e747ce7a157b3"
+        ],
+        "x": 134,
+        "y": 19,
+        "w": 492,
+        "h": 142
+    },
+    {
+        "id": "9833f685fdd98c8f",
+        "type": "ui_dropdown",
+        "z": "f6f2187d.f17ca8",
+        "g": "f13c49dcd9ef2f2d",
+        "name": "",
+        "label": "Select Topic",
+        "tooltip": "Select the Topic",
+        "place": "Select option",
+        "group": "fd0c596d80b9d863",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Topic1",
+                "value": "Topic 1",
+                "type": "str"
+            },
+            {
+                "label": "Topic2",
+                "value": "Topic 2",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "drop1",
+        "x": 230,
+        "y": 60,
+        "wires": [
+            [
+                "0ce948dd95516b5f"
+            ]
+        ]
+    },
+    {
+        "id": "0ce948dd95516b5f",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "f13c49dcd9ef2f2d",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "green",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Action",
+        "name": "",
+        "x": 510,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "db7e747ce7a157b3",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "g": "f13c49dcd9ef2f2d",
+        "group": "fd0c596d80b9d863",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .drop1 {\n        background-color: rgb(0, 255, 0) !important;\n        /* \n        custom css for the parent of all the components in the\n        dropdown\n        */\n    }\n    \n    .drop1 > md-input-container > p {\n        color: rgb(255, 0, 0) !important;\n        /* \n        custom css for the text describing the selectable\n        items\n        */\n    }\n    \n    .drop1 > md-input-container > md-select {\n        background-color: rgb(0, 0, 255) !important;\n        /* \n        custom css for the selected topic\n        */\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 220,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd0c596d80b9d863",
+        "type": "ui_group",
+        "name": "Style",
+        "tab": "0a81ed89a23a4995",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0a81ed89a23a4995",
+        "type": "ui_tab",
+        "name": "Template",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
