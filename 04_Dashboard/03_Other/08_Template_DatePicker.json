@@ -1,0 +1,105 @@
+[
+    {
+        "id": "d573a12d1f938889",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Template Date Picker Style",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "253ca60171119b5c",
+            "9ae3a68d293649f5",
+            "4cddbdd25ce66ea4"
+        ],
+        "x": 314,
+        "y": 179,
+        "w": 412,
+        "h": 142
+    },
+    {
+        "id": "253ca60171119b5c",
+        "type": "ui_date_picker",
+        "z": "f6f2187d.f17ca8",
+        "g": "d573a12d1f938889",
+        "name": "",
+        "label": "Date",
+        "group": "4cd83cf3cf80a317",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "date1",
+        "x": 390,
+        "y": 220,
+        "wires": [
+            [
+                "9ae3a68d293649f5"
+            ]
+        ]
+    },
+    {
+        "id": "9ae3a68d293649f5",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "d573a12d1f938889",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "green",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Action",
+        "name": "",
+        "x": 610,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "4cddbdd25ce66ea4",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "g": "d573a12d1f938889",
+        "group": "4cd83cf3cf80a317",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .date1 {\n        background-color: rgb(0, 255, 0) !important;\n        /*\n        Custom CSS for the Parent (date1)\n        */\n    }\n    \n    .date1 > md-input-container > p {\n        color: rgb(255, 0, 0) !important;\n        /*\n        Custom CSS for all the p tags in the md-input-container\n        */\n    }\n    \n    .date1 > md-input-container > md-datepicker {\n        background-color: rgb(0, 0, 255) !important;\n        /*\n        Custom CSS for the md-datepicker\n        */\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 400,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4cd83cf3cf80a317",
+        "type": "ui_group",
+        "name": "Style",
+        "tab": "1feeefd2ea4167ca",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1feeefd2ea4167ca",
+        "type": "ui_tab",
+        "name": "Template",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
