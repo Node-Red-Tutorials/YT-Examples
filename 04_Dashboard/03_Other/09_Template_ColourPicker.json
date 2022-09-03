@@ -1,0 +1,115 @@
+[
+    {
+        "id": "bf8443d0dc19cfd4",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Template Colour Picker Style",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "e86c671200ea47f6",
+            "fd6161f5e6a6142a",
+            "2935cce59e75f2bf"
+        ],
+        "x": 174,
+        "y": 199,
+        "w": 412,
+        "h": 142
+    },
+    {
+        "id": "e86c671200ea47f6",
+        "type": "ui_colour_picker",
+        "z": "f6f2187d.f17ca8",
+        "g": "bf8443d0dc19cfd4",
+        "name": "",
+        "label": "Color",
+        "group": "a0f142f88182ae57",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "col1",
+        "x": 250,
+        "y": 240,
+        "wires": [
+            [
+                "fd6161f5e6a6142a"
+            ]
+        ]
+    },
+    {
+        "id": "fd6161f5e6a6142a",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "bf8443d0dc19cfd4",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "green",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Action",
+        "name": "",
+        "x": 470,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2935cce59e75f2bf",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "g": "bf8443d0dc19cfd4",
+        "group": "a0f142f88182ae57",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .col1 {\n        background-color: rgb(0, 255, 0) !important\n        /*\n        Custom CSS for the Parent Card (col1)\n        */\n    }\n    \n    .col1 > p {\n        color: rgb(255, 0 ,0) !important;\n        /*\n        Custom CSS for all the p tags in the parent (col1)\n        */\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 260,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a0f142f88182ae57",
+        "type": "ui_group",
+        "name": "Style",
+        "tab": "cf5df89b72624579",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cf5df89b72624579",
+        "type": "ui_tab",
+        "name": "Template",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
