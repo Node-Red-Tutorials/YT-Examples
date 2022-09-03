@@ -1,0 +1,111 @@
+[
+    {
+        "id": "1732b3967af3dfd9",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Template Numeric Style",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "e49d3c4eb47a67f6",
+            "aec22b8d6faec5b5",
+            "1e25fc5e1e871cfd"
+        ],
+        "x": 74,
+        "y": 119,
+        "w": 432,
+        "h": 142
+    },
+    {
+        "id": "e49d3c4eb47a67f6",
+        "type": "ui_numeric",
+        "z": "f6f2187d.f17ca8",
+        "g": "1732b3967af3dfd9",
+        "name": "",
+        "label": "Number",
+        "tooltip": "",
+        "group": "488f572878e094b5",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "num1",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "1e25fc5e1e871cfd"
+            ]
+        ]
+    },
+    {
+        "id": "aec22b8d6faec5b5",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "g": "1732b3967af3dfd9",
+        "group": "488f572878e094b5",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .num1 {\n        background-color: rgb(0, 255, 0) !important;\n        /*\n        Custom CSS for the parent Card (num1)\n        */\n    }\n    \n    .num1 > p {\n        color: rgb(255, 0, 0) !important;\n        /*\n        Custom CSS for all the p tags in the parent (num1)\n        */\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 160,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e25fc5e1e871cfd",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "1732b3967af3dfd9",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "green",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Action",
+        "name": "",
+        "x": 390,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "488f572878e094b5",
+        "type": "ui_group",
+        "name": "Style",
+        "tab": "a4c5e38ea0511931",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a4c5e38ea0511931",
+        "type": "ui_tab",
+        "name": "Template",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
