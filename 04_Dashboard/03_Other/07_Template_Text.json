@@ -1,0 +1,109 @@
+[
+    {
+        "id": "69e8330262c9c07b",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Template Text Style",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "7899946cb69f2c03",
+            "959ced806714e364",
+            "76dc312828fc37d0"
+        ],
+        "x": 254,
+        "y": 199,
+        "w": 412,
+        "h": 142
+    },
+    {
+        "id": "7899946cb69f2c03",
+        "type": "ui_text_input",
+        "z": "f6f2187d.f17ca8",
+        "g": "69e8330262c9c07b",
+        "name": "",
+        "label": "Text",
+        "tooltip": "",
+        "group": "0c91957f4d140162",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "text1",
+        "topicType": "msg",
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "959ced806714e364"
+            ]
+        ]
+    },
+    {
+        "id": "959ced806714e364",
+        "type": "ui_toast",
+        "z": "f6f2187d.f17ca8",
+        "g": "69e8330262c9c07b",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "green",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "Action",
+        "name": "",
+        "x": 550,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "76dc312828fc37d0",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "g": "69e8330262c9c07b",
+        "group": "0c91957f4d140162",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .text1 {\n        background-color: rgb(0, 255, 0) !important;\n        /*\n        Custom CSS for the Parent (text1)\n        */\n    }\n    \n    .text1 > md-input-container > label {\n        color: rgb(255, 0, 0) !important;\n        /*\n        Custom CSS for the label in the parent (text1)\n        */\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 340,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0c91957f4d140162",
+        "type": "ui_group",
+        "name": "Style",
+        "tab": "d18434770fb45bf1",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d18434770fb45bf1",
+        "type": "ui_tab",
+        "name": "Template",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
