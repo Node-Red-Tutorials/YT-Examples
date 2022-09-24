@@ -93,7 +93,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "format": "<style>\n    .form1 {\n        background-color: rgb(0, 255, 0) !important;\n        /*\n        Custom CSS for the Parent Card (from1)\n        */\n    }\n    \n    .form1 > form > .form-control > button {\n        background-color: rgb(255, 0, 0) !important;\n        /*\n        Custom CSS for the submit & cancel button in the parent (form1)\n    }\n</style>",
+        "format": "<style>\n    .form1 {\n        background-color: rgb(0, 255, 0) !important;\n        /*\n        Custom CSS for the Parent Card (from1)\n        */\n    }\n    \n    .form1 > form > .form-control > button {\n        background-color: rgb(255, 0, 0) !important;\n        /*\n        Custom CSS for the submit & cancel button in the parent (form1)\n  /*\n    }\n</style>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
