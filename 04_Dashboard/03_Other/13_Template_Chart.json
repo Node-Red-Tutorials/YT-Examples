@@ -1,0 +1,158 @@
+[
+    {
+        "id": "ef07d7d8fe1e01e5",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Template Chart Style",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "29db325810bc3696",
+            "6c1abb719ac5633c",
+            "72b6072939d1e686",
+            "1733917950399d00"
+        ],
+        "x": 54,
+        "y": 39,
+        "w": 752,
+        "h": 122
+    },
+    {
+        "id": "29db325810bc3696",
+        "type": "ui_chart",
+        "z": "f6f2187d.f17ca8",
+        "g": "ef07d7d8fe1e01e5",
+        "name": "",
+        "group": "7fb8635312a768b5",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Random Number",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "chart1",
+        "x": 690,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c1abb719ac5633c",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "ef07d7d8fe1e01e5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "72b6072939d1e686"
+            ]
+        ]
+    },
+    {
+        "id": "72b6072939d1e686",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "ef07d7d8fe1e01e5",
+        "name": "RANDOM_NUMBER",
+        "func": "// Generate random Integer between 0 and 10\nmsg.payload = parseInt(Math.random() * 10);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "29db325810bc3696"
+            ]
+        ]
+    },
+    {
+        "id": "1733917950399d00",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "g": "ef07d7d8fe1e01e5",
+        "group": "7fb8635312a768b5",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .chart1 {\n        background-color: rgb(0, 255, 0) !important;\n        /*\n        Custom CSS for the parent card (chart1)\n        */\n    }\n    \n    .chart1 > div > .label {\n        font-size: 24px !important;\n        font-weight: bold !important;\n        text-transform: none !important;\n        color: rgb(255, 0, 0) !important;\n        /*\n        Custom CSS for the chart label\n        */\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 660,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7fb8635312a768b5",
+        "type": "ui_group",
+        "name": "Style",
+        "tab": "723ad51699cf1c01",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "723ad51699cf1c01",
+        "type": "ui_tab",
+        "name": "Template",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
