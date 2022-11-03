@@ -1,0 +1,112 @@
+[
+    {
+        "id": "940a9155d1a6dabe",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Template Progressbar",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "e6aab5a2b71b07af",
+            "9e864763a1ed347c",
+            "c996ddbe276ace1e"
+        ],
+        "x": 54,
+        "y": 59,
+        "w": 612,
+        "h": 82
+    },
+    {
+        "id": "e6aab5a2b71b07af",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "940a9155d1a6dabe",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "9e864763a1ed347c"
+            ]
+        ]
+    },
+    {
+        "id": "9e864763a1ed347c",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "g": "940a9155d1a6dabe",
+        "name": "Counter",
+        "func": "// get context variable => default to 0\ncounter = context.get(\"counter\") || 0;\n\n// check if counter value is smaller than 100\nif (counter < 100) {\n    // increase counter value by 1\n    counter ++\n} else {\n    // reset counter to 0\n    counter = 0\n}\n\n// set msg.payload to counter value\nmsg.payload = counter\n\n// set context variable to counter value\ncontext.set(\"counter\", counter)\n\n// return msg object\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "c996ddbe276ace1e"
+            ]
+        ]
+    },
+    {
+        "id": "c996ddbe276ace1e",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "g": "940a9155d1a6dabe",
+        "group": "d7778f42ba863dd6",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<label>{{msg.payload}}</label>\n<progress value={{msg.payload}} max=100></progress>\n\n<style>\n    label {\n        color: blue;\n        font-weight: bold;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 580,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d7778f42ba863dd6",
+        "type": "ui_group",
+        "name": "Progressbar",
+        "tab": "5017c370d13b1753",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5017c370d13b1753",
+        "type": "ui_tab",
+        "name": "Template",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
