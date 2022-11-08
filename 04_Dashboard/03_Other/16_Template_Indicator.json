@@ -1,0 +1,191 @@
+[
+    {
+        "id": "9b9ea8e2bb513e1d",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Template Indicator",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "af2e3369150364b3",
+            "6da8884428c67fe1",
+            "2567f91e72ee48b9",
+            "fd04b13c193d51b5",
+            "e7326a98a62038e2"
+        ],
+        "x": 154,
+        "y": 339,
+        "w": 992,
+        "h": 122
+    },
+    {
+        "id": "af2e3369150364b3",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "g": "9b9ea8e2bb513e1d",
+        "group": "5e88d4e9578032ea",
+        "name": "",
+        "order": 2,
+        "width": 2,
+        "height": 2,
+        "format": "<div id=\"indicator\"></div>\n\n<style>\n    #indicator {\n        width: {{msg.scale}};\n        height: {{msg.scale}};\n        background-color: {{msg.payload}};\n        border-radius: 50%;\n        margin: auto;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1060,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6da8884428c67fe1",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "9b9ea8e2bb513e1d",
+        "name": "2 Second Intervall",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "2567f91e72ee48b9",
+                "e7326a98a62038e2"
+            ]
+        ]
+    },
+    {
+        "id": "2567f91e72ee48b9",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "9b9ea8e2bb513e1d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "scale",
+                "pt": "msg",
+                "to": "75px",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 380,
+        "wires": [
+            [
+                "af2e3369150364b3"
+            ]
+        ]
+    },
+    {
+        "id": "fd04b13c193d51b5",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "9b9ea8e2bb513e1d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "scale",
+                "pt": "msg",
+                "to": "50px",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 420,
+        "wires": [
+            [
+                "af2e3369150364b3"
+            ]
+        ]
+    },
+    {
+        "id": "e7326a98a62038e2",
+        "type": "trigger",
+        "z": "f6f2187d.f17ca8",
+        "g": "9b9ea8e2bb513e1d",
+        "name": "1 Second Trigger",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 550,
+        "y": 420,
+        "wires": [
+            [
+                "fd04b13c193d51b5"
+            ]
+        ]
+    },
+    {
+        "id": "5e88d4e9578032ea",
+        "type": "ui_group",
+        "name": "Indicator",
+        "tab": "33f8f7db6b9d41f0",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "33f8f7db6b9d41f0",
+        "type": "ui_tab",
+        "name": "Template",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
