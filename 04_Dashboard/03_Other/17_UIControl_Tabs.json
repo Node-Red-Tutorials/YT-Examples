@@ -1,0 +1,339 @@
+[
+    {
+        "id": "125c85faea7572bf",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "UIControl Tabs",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a1b1130514c3f5d5",
+            "e229b5656c7043a1",
+            "5563828bf990bac6",
+            "711aff1a4fc0d793",
+            "dc4384a82b31186b",
+            "fa46479feb50acf4",
+            "2233f5cdd6b57ab1",
+            "2a13de37dd6d06b4",
+            "5fe56b501dcf3e4f",
+            "fdb39fe7f3ec1eb6",
+            "52551884de6d0830"
+        ],
+        "x": 154,
+        "y": 219,
+        "w": 862,
+        "h": 302
+    },
+    {
+        "id": "a1b1130514c3f5d5",
+        "type": "ui_text",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "group": "3fad712465364921",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Tab 1",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 710,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e229b5656c7043a1",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "name": "",
+        "group": "5d0f0a4ec0c8366b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Jump to Tab 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 320,
+        "wires": [
+            [
+                "5563828bf990bac6"
+            ]
+        ]
+    },
+    {
+        "id": "5563828bf990bac6",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"tab\":\"Tab 1\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 320,
+        "wires": [
+            [
+                "711aff1a4fc0d793"
+            ]
+        ]
+    },
+    {
+        "id": "711aff1a4fc0d793",
+        "type": "ui_ui_control",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "name": "",
+        "events": "all",
+        "x": 720,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc4384a82b31186b",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "name": "",
+        "group": "3fad712465364921",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Jump to Tab 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 260,
+        "y": 380,
+        "wires": [
+            [
+                "fa46479feb50acf4"
+            ]
+        ]
+    },
+    {
+        "id": "fa46479feb50acf4",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"tab\" : \"Tab 2\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 380,
+        "wires": [
+            [
+                "711aff1a4fc0d793"
+            ]
+        ]
+    },
+    {
+        "id": "2233f5cdd6b57ab1",
+        "type": "ui_switch",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "name": "",
+        "label": "Show / Hide Tab 1",
+        "tooltip": "",
+        "group": "5d0f0a4ec0c8366b",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 270,
+        "y": 460,
+        "wires": [
+            [
+                "2a13de37dd6d06b4"
+            ]
+        ]
+    },
+    {
+        "id": "2a13de37dd6d06b4",
+        "type": "switch",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 460,
+        "wires": [
+            [
+                "5fe56b501dcf3e4f"
+            ],
+            [
+                "fdb39fe7f3ec1eb6"
+            ]
+        ]
+    },
+    {
+        "id": "5fe56b501dcf3e4f",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"tabs\":{\"hide\":[\"Tab 1\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 440,
+        "wires": [
+            [
+                "52551884de6d0830"
+            ]
+        ]
+    },
+    {
+        "id": "fdb39fe7f3ec1eb6",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"tabs\":{\"show\":[\"Tab 1\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 700,
+        "y": 480,
+        "wires": [
+            [
+                "52551884de6d0830"
+            ]
+        ]
+    },
+    {
+        "id": "52551884de6d0830",
+        "type": "ui_ui_control",
+        "z": "f6f2187d.f17ca8",
+        "g": "125c85faea7572bf",
+        "name": "",
+        "events": "all",
+        "x": 930,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3fad712465364921",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "abb33d5ffca9c5a6",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "5d0f0a4ec0c8366b",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "d651eeccc2332f7c",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "abb33d5ffca9c5a6",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "d651eeccc2332f7c",
+        "type": "ui_tab",
+        "name": "Tab 2",
+        "icon": "dashboard",
+        "order": 2
+    }
+]
