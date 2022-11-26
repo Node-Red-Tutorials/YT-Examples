@@ -1,0 +1,103 @@
+[
+    {
+        "id": "079559ea1fbafa2e",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Richer Table Html and Link",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "74c59ad94870e309",
+            "4067f486c627e18a"
+        ],
+        "x": 214,
+        "y": 279,
+        "w": 352,
+        "h": 82
+    },
+    {
+        "id": "74c59ad94870e309",
+        "type": "ui_table",
+        "z": "f6f2187d.f17ca8",
+        "g": "079559ea1fbafa2e",
+        "group": "7b928250b3553fdd",
+        "name": "",
+        "order": 1,
+        "width": 10,
+        "height": 4,
+        "columns": [
+            {
+                "field": "name",
+                "title": "Name",
+                "width": "",
+                "align": "left",
+                "formatter": "html",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "url",
+                "title": "Url",
+                "width": "60%",
+                "align": "center",
+                "formatter": "link",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 490,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4067f486c627e18a",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "079559ea1fbafa2e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"name\":\"my_name\"},{\"name\":\"<b>my_bold_name</b>\"},{\"name\":\"<i>my_italic_name</i>\"},{\"name\":\"<b style='color:red'>my_red_name</b>\",\"url\":\"https://github.com/Node-Red-Tutorials/YT-Examples\"},{\"name\":\"<b style='text-transform:uppercase'>my_uppercase_name</b>\"}]",
+        "payloadType": "json",
+        "x": 310,
+        "y": 320,
+        "wires": [
+            [
+                "74c59ad94870e309"
+            ]
+        ]
+    },
+    {
+        "id": "7b928250b3553fdd",
+        "type": "ui_group",
+        "name": "Table",
+        "tab": "e18f7baab35eb2e5",
+        "order": 1,
+        "disp": true,
+        "width": 10,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e18f7baab35eb2e5",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
