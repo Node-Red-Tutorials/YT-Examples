@@ -1,0 +1,125 @@
+[
+    {
+        "id": "31c9e72826f10c17",
+        "type": "group",
+        "z": "f6f2187d.f17ca8",
+        "name": "Simple UI-Table",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "2fea86a0b292ee74",
+            "4aa0d3602ccebde6",
+            "00de96436b607bb7"
+        ],
+        "x": 174,
+        "y": 159,
+        "w": 592,
+        "h": 82
+    },
+    {
+        "id": "2fea86a0b292ee74",
+        "type": "ui_table",
+        "z": "f6f2187d.f17ca8",
+        "g": "31c9e72826f10c17",
+        "group": "9ea5b1211ce1f538",
+        "name": "",
+        "order": 1,
+        "width": 10,
+        "height": 4,
+        "columns": [
+            {
+                "field": "name",
+                "title": "Name",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "age",
+                "title": "Age",
+                "width": "25%",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 1,
+        "cts": true,
+        "x": 450,
+        "y": 200,
+        "wires": [
+            [
+                "00de96436b607bb7"
+            ]
+        ]
+    },
+    {
+        "id": "4aa0d3602ccebde6",
+        "type": "inject",
+        "z": "f6f2187d.f17ca8",
+        "g": "31c9e72826f10c17",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"name\":\"my_name\",\"age\":26},{\"name\":\"my_new_name\",\"age\":32}]",
+        "payloadType": "json",
+        "x": 270,
+        "y": 200,
+        "wires": [
+            [
+                "2fea86a0b292ee74"
+            ]
+        ]
+    },
+    {
+        "id": "00de96436b607bb7",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "g": "31c9e72826f10c17",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "9ea5b1211ce1f538",
+        "type": "ui_group",
+        "name": "Table",
+        "tab": "b840f930a6c2e677",
+        "order": 1,
+        "disp": true,
+        "width": 10,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b840f930a6c2e677",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
