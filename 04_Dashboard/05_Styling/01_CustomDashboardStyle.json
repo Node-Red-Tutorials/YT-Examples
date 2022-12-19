@@ -1,0 +1,970 @@
+[
+    {
+        "id": "894d123d312f9b0f",
+        "type": "tab",
+        "label": "Inputs",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "91ef87b35172107c",
+        "type": "tab",
+        "label": "Outputs",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "41125d8686293618",
+        "type": "tab",
+        "label": "Style",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ef84962539f3aa00",
+        "type": "group",
+        "z": "91ef87b35172107c",
+        "name": "Text",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "736221d5031fa07a",
+            "84a3385e2e6126e3",
+            "5ce61b762650901d"
+        ],
+        "x": 54,
+        "y": 39,
+        "w": 632,
+        "h": 82
+    },
+    {
+        "id": "b2f5cb1db53e88fb",
+        "type": "group",
+        "z": "91ef87b35172107c",
+        "name": "Gauge",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "d1b5192c1947ee26",
+            "2f92666a2d7b1621",
+            "0522e6fd59254812"
+        ],
+        "x": 54,
+        "y": 139,
+        "w": 632,
+        "h": 82
+    },
+    {
+        "id": "e82fc0e973dda5d5",
+        "type": "group",
+        "z": "91ef87b35172107c",
+        "name": "Chart",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "4a07021fad868464",
+            "7a4cec295c7190a1",
+            "8834471560566e34"
+        ],
+        "x": 54,
+        "y": 239,
+        "w": 632,
+        "h": 82
+    },
+    {
+        "id": "7f83fe4a89a7c6cb",
+        "type": "group",
+        "z": "91ef87b35172107c",
+        "name": "Table",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "fbac0c25a93c2f39",
+            "fadfd3bace985b1a"
+        ],
+        "x": 54,
+        "y": 339,
+        "w": 452,
+        "h": 82
+    },
+    {
+        "id": "f36c651d6ef90416",
+        "type": "group",
+        "z": "91ef87b35172107c",
+        "name": "Notification",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a7dfd0b9d3debd8e",
+            "fb6ac775e0c257b5"
+        ],
+        "x": 54,
+        "y": 439,
+        "w": 312,
+        "h": 82
+    },
+    {
+        "id": "c1fb4f8995260753",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-custom",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Node-Red Tutorials",
+                "default": "#4B7930",
+                "baseColor": "#8e0100",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#8f0100",
+                    "value": "#8e0100",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#8f0100",
+                    "edited": true
+                },
+                "page-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": true
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ebebeb",
+                    "edited": true
+                },
+                "group-textColor": {
+                    "value": "#8f0100",
+                    "edited": true
+                },
+                "group-borderColor": {
+                    "value": "#ebebeb",
+                    "edited": true
+                },
+                "group-backgroundColor": {
+                    "value": "#ebebeb",
+                    "edited": true
+                },
+                "widget-textColor": {
+                    "value": "#8f0100",
+                    "edited": true
+                },
+                "widget-backgroundColor": {
+                    "value": "#8f0100",
+                    "edited": true
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": true
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "true",
+            "lockMenu": "icon",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "2882a04bedd37e19",
+        "type": "ui_tab",
+        "name": "Inputs",
+        "icon": "fa-keyboard-o",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "600420f2abcef709",
+        "type": "ui_tab",
+        "name": "Outputs",
+        "icon": "fa-bar-chart",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c6a7fd2b4d550742",
+        "type": "ui_group",
+        "name": "Button",
+        "tab": "2882a04bedd37e19",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f5d285badaeee4ce",
+        "type": "ui_group",
+        "name": "Dropdown",
+        "tab": "2882a04bedd37e19",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7503df3b83196848",
+        "type": "ui_group",
+        "name": "Switch",
+        "tab": "2882a04bedd37e19",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "015800ed7439046a",
+        "type": "ui_group",
+        "name": "Slider",
+        "tab": "2882a04bedd37e19",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a59b69b5b1568b5c",
+        "type": "ui_group",
+        "name": "Numeric",
+        "tab": "2882a04bedd37e19",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ee7fdc750cf22d74",
+        "type": "ui_group",
+        "name": "Text Input",
+        "tab": "2882a04bedd37e19",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cbc0b4b5de93f47e",
+        "type": "ui_group",
+        "name": "Date",
+        "tab": "2882a04bedd37e19",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5b313c623b24ab65",
+        "type": "ui_group",
+        "name": "Colour Picker",
+        "tab": "2882a04bedd37e19",
+        "order": 8,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e2197818e1642f34",
+        "type": "ui_group",
+        "name": "Form",
+        "tab": "2882a04bedd37e19",
+        "order": 9,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "18772dc585ba2454",
+        "type": "ui_group",
+        "name": "Text",
+        "tab": "600420f2abcef709",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "676c488abb3c0dd1",
+        "type": "ui_group",
+        "name": "Gauge",
+        "tab": "600420f2abcef709",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "75866f12551c59d9",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "600420f2abcef709",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "61a9c01258f815c0",
+        "type": "ui_group",
+        "name": "Table",
+        "tab": "600420f2abcef709",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2ac86c8e3bb06eaa",
+        "type": "ui_button",
+        "z": "894d123d312f9b0f",
+        "name": "",
+        "group": "c6a7fd2b4d550742",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "4f348d1cb50d4f96"
+            ]
+        ]
+    },
+    {
+        "id": "8501bee499597566",
+        "type": "ui_dropdown",
+        "z": "894d123d312f9b0f",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "f5d285badaeee4ce",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 130,
+        "y": 107.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b7d6240f6bfab85c",
+        "type": "ui_switch",
+        "z": "894d123d312f9b0f",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "7503df3b83196848",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 155,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3a127aafdc8af878",
+        "type": "ui_slider",
+        "z": "894d123d312f9b0f",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "015800ed7439046a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 110,
+        "y": 202.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b5c1e5208417fd2f",
+        "type": "ui_numeric",
+        "z": "894d123d312f9b0f",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "group": "a59b69b5b1568b5c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 120,
+        "y": 250,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46176a3e2d400050",
+        "type": "ui_text_input",
+        "z": "894d123d312f9b0f",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "ee7fdc750cf22d74",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 120,
+        "y": 297.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "10f2a5f4bac5396e",
+        "type": "ui_date_picker",
+        "z": "894d123d312f9b0f",
+        "name": "",
+        "label": "date",
+        "group": "cbc0b4b5de93f47e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 110,
+        "y": 345,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4a15b48683b5a31",
+        "type": "ui_colour_picker",
+        "z": "894d123d312f9b0f",
+        "name": "",
+        "label": "",
+        "group": "5b313c623b24ab65",
+        "format": "hex",
+        "outformat": "string",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 130,
+        "y": 392.5,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9c1d8ff5ac165dd8",
+        "type": "ui_form",
+        "z": "894d123d312f9b0f",
+        "name": "",
+        "label": "",
+        "group": "e2197818e1642f34",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Age",
+                "value": "Age",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "Age": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4f348d1cb50d4f96",
+        "type": "link out",
+        "z": "894d123d312f9b0f",
+        "name": "Button Out",
+        "mode": "link",
+        "links": [
+            "fb6ac775e0c257b5"
+        ],
+        "x": 255,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "736221d5031fa07a",
+        "type": "ui_text",
+        "z": "91ef87b35172107c",
+        "g": "ef84962539f3aa00",
+        "group": "18772dc585ba2454",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload.toFixed(2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 610,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d1b5192c1947ee26",
+        "type": "ui_gauge",
+        "z": "91ef87b35172107c",
+        "g": "b2f5cb1db53e88fb",
+        "name": "",
+        "group": "676c488abb3c0dd1",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{payload.toFixed(2)}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 610,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "4a07021fad868464",
+        "type": "ui_chart",
+        "z": "91ef87b35172107c",
+        "g": "e82fc0e973dda5d5",
+        "name": "",
+        "group": "75866f12551c59d9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 610,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a7dfd0b9d3debd8e",
+        "type": "ui_toast",
+        "z": "91ef87b35172107c",
+        "g": "f36c651d6ef90416",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 270,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fbac0c25a93c2f39",
+        "type": "ui_table",
+        "z": "91ef87b35172107c",
+        "g": "7f83fe4a89a7c6cb",
+        "group": "61a9c01258f815c0",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 430,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "84a3385e2e6126e3",
+        "type": "inject",
+        "z": "91ef87b35172107c",
+        "g": "ef84962539f3aa00",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "5ce61b762650901d"
+            ]
+        ]
+    },
+    {
+        "id": "5ce61b762650901d",
+        "type": "function",
+        "z": "91ef87b35172107c",
+        "g": "ef84962539f3aa00",
+        "name": "RandomValue",
+        "func": "// create random value between 0 and 100\nmsg.payload = Math.random() * 100;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 80,
+        "wires": [
+            [
+                "736221d5031fa07a"
+            ]
+        ]
+    },
+    {
+        "id": "2f92666a2d7b1621",
+        "type": "inject",
+        "z": "91ef87b35172107c",
+        "g": "b2f5cb1db53e88fb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "0522e6fd59254812"
+            ]
+        ]
+    },
+    {
+        "id": "0522e6fd59254812",
+        "type": "function",
+        "z": "91ef87b35172107c",
+        "g": "b2f5cb1db53e88fb",
+        "name": "RandomValue",
+        "func": "// create random value between 0 and 100\nmsg.payload = Math.random() * 100;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 180,
+        "wires": [
+            [
+                "d1b5192c1947ee26"
+            ]
+        ]
+    },
+    {
+        "id": "7a4cec295c7190a1",
+        "type": "inject",
+        "z": "91ef87b35172107c",
+        "g": "e82fc0e973dda5d5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "8834471560566e34"
+            ]
+        ]
+    },
+    {
+        "id": "8834471560566e34",
+        "type": "function",
+        "z": "91ef87b35172107c",
+        "g": "e82fc0e973dda5d5",
+        "name": "RandomValue",
+        "func": "// create random value between 0 and 100\nmsg.payload = Math.random() * 100;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 280,
+        "wires": [
+            [
+                "4a07021fad868464"
+            ]
+        ]
+    },
+    {
+        "id": "fadfd3bace985b1a",
+        "type": "inject",
+        "z": "91ef87b35172107c",
+        "g": "7f83fe4a89a7c6cb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"age\":15},{\"age\":16}]",
+        "payloadType": "json",
+        "x": 200,
+        "y": 380,
+        "wires": [
+            [
+                "fbac0c25a93c2f39"
+            ]
+        ]
+    },
+    {
+        "id": "fb6ac775e0c257b5",
+        "type": "link in",
+        "z": "91ef87b35172107c",
+        "g": "f36c651d6ef90416",
+        "name": "Notification In",
+        "links": [
+            "4f348d1cb50d4f96"
+        ],
+        "x": 95,
+        "y": 480,
+        "wires": [
+            [
+                "a7dfd0b9d3debd8e"
+            ]
+        ]
+    },
+    {
+        "id": "497a37573fabe517",
+        "type": "ui_template",
+        "z": "41125d8686293618",
+        "group": "c6a7fd2b4d550742",
+        "name": "Dashboard Style",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    /* Styling for all the groups */\n    ui-card-panel {\n        box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;\n        border-radius: 5px;\n    }\n    \n    /* Styling for all the Elements in the Groups */\n    ui-card-panel * {\n        border-radius: 2.5px;\n    }\n    \n    /* Styling of the Group Title */\n    .nr-dashboard-cardtitle {\n        font-weight: bold !important;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    }
+]
