@@ -1,0 +1,665 @@
+[
+    {
+        "id": "b1717d7f788ba20d",
+        "type": "tab",
+        "label": "Client",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "34c67249b3fb3228",
+        "type": "tab",
+        "label": "Server 2000",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3776292d6430ee45",
+        "type": "tab",
+        "label": "Server 2001",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2aa238de0b046e95",
+        "type": "group",
+        "z": "b1717d7f788ba20d",
+        "name": "TCP Request with Buffer Output",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "ba504b20c0677da0",
+            "5386947b98581c58",
+            "7108a2c04223f9a1",
+            "952c1873eebfd639"
+        ],
+        "x": 54,
+        "y": 39,
+        "w": 912,
+        "h": 82
+    },
+    {
+        "id": "71c385b96398b9fb",
+        "type": "group",
+        "z": "b1717d7f788ba20d",
+        "name": "TCP Request with String Output",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "4b4f5bec41ac9de3",
+            "e10e205326fbe84d",
+            "cb1eca2ae5d50d27"
+        ],
+        "x": 54,
+        "y": 159,
+        "w": 672,
+        "h": 82
+    },
+    {
+        "id": "51f76a841cc8ab0b",
+        "type": "group",
+        "z": "b1717d7f788ba20d",
+        "name": "TCP Request with dynamic Port",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "2956feb321a7e6ed",
+            "fc90bb99d1c085a2",
+            "4c9d67af3b0d80db",
+            "baf781382604289b"
+        ],
+        "x": 54,
+        "y": 279,
+        "w": 852,
+        "h": 82
+    },
+    {
+        "id": "f51b0b537a865a9e",
+        "type": "group",
+        "z": "34c67249b3fb3228",
+        "name": "TCP Server on Port 2000",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "4a56f8a390120644",
+            "ee638d3c6a64ae1f",
+            "ca46e959629498a5",
+            "c039d7b70800052e"
+        ],
+        "x": 54,
+        "y": 39,
+        "w": 592,
+        "h": 122
+    },
+    {
+        "id": "7c8030c4cd5216ea",
+        "type": "group",
+        "z": "3776292d6430ee45",
+        "name": "TCP Server on Port 2001",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "4d5e34f6cc4d77ed",
+            "a5d0a294f153407a",
+            "c33c83edd85e008a",
+            "9c62efe879970e10"
+        ],
+        "x": 54,
+        "y": 39,
+        "w": 592,
+        "h": 122
+    },
+    {
+        "id": "3ec56b872df1fe43",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "da956253ac35df9e",
+        "type": "ui_tab",
+        "name": "TCP",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "8686454a2a690b9b",
+        "type": "ui_group",
+        "name": "Send",
+        "tab": "da956253ac35df9e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1d0b123dc57db66b",
+        "type": "ui_group",
+        "name": "Recv",
+        "tab": "da956253ac35df9e",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ba504b20c0677da0",
+        "type": "inject",
+        "z": "b1717d7f788ba20d",
+        "g": "2aa238de0b046e95",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Test",
+        "payloadType": "str",
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "5386947b98581c58"
+            ]
+        ]
+    },
+    {
+        "id": "5386947b98581c58",
+        "type": "tcp request",
+        "z": "b1717d7f788ba20d",
+        "g": "2aa238de0b046e95",
+        "name": "",
+        "server": "localhost",
+        "port": "2000",
+        "out": "time",
+        "ret": "buffer",
+        "splitc": "0",
+        "newline": "",
+        "tls": "",
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "952c1873eebfd639"
+            ]
+        ]
+    },
+    {
+        "id": "7108a2c04223f9a1",
+        "type": "debug",
+        "z": "b1717d7f788ba20d",
+        "g": "2aa238de0b046e95",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "952c1873eebfd639",
+        "type": "function",
+        "z": "b1717d7f788ba20d",
+        "g": "2aa238de0b046e95",
+        "name": "Convert To Ascii",
+        "func": "msg.payload = msg.payload.toString('ascii');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 80,
+        "wires": [
+            [
+                "7108a2c04223f9a1"
+            ]
+        ]
+    },
+    {
+        "id": "4b4f5bec41ac9de3",
+        "type": "inject",
+        "z": "b1717d7f788ba20d",
+        "g": "71c385b96398b9fb",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Test",
+        "payloadType": "str",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "e10e205326fbe84d"
+            ]
+        ]
+    },
+    {
+        "id": "e10e205326fbe84d",
+        "type": "tcp request",
+        "z": "b1717d7f788ba20d",
+        "g": "71c385b96398b9fb",
+        "name": "",
+        "server": "localhost",
+        "port": "2000",
+        "out": "time",
+        "ret": "string",
+        "splitc": "0",
+        "newline": "",
+        "tls": "",
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "cb1eca2ae5d50d27"
+            ]
+        ]
+    },
+    {
+        "id": "cb1eca2ae5d50d27",
+        "type": "debug",
+        "z": "b1717d7f788ba20d",
+        "g": "71c385b96398b9fb",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2956feb321a7e6ed",
+        "type": "tcp request",
+        "z": "b1717d7f788ba20d",
+        "g": "51f76a841cc8ab0b",
+        "name": "",
+        "server": "",
+        "port": "",
+        "out": "time",
+        "ret": "string",
+        "splitc": "0",
+        "newline": "",
+        "tls": "",
+        "x": 590,
+        "y": 320,
+        "wires": [
+            [
+                "baf781382604289b"
+            ]
+        ]
+    },
+    {
+        "id": "fc90bb99d1c085a2",
+        "type": "ui_dropdown",
+        "z": "b1717d7f788ba20d",
+        "g": "51f76a841cc8ab0b",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "8686454a2a690b9b",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Server 2000",
+                "value": 2000,
+                "type": "num"
+            },
+            {
+                "label": "Server 2001",
+                "value": 2001,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "4c9d67af3b0d80db"
+            ]
+        ]
+    },
+    {
+        "id": "4c9d67af3b0d80db",
+        "type": "change",
+        "z": "b1717d7f788ba20d",
+        "g": "51f76a841cc8ab0b",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "port",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "host",
+                "pt": "msg",
+                "to": "localhost",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "2956feb321a7e6ed"
+            ]
+        ]
+    },
+    {
+        "id": "baf781382604289b",
+        "type": "ui_text",
+        "z": "b1717d7f788ba20d",
+        "g": "51f76a841cc8ab0b",
+        "group": "1d0b123dc57db66b",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Tcp Response",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 800,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4a56f8a390120644",
+        "type": "tcp in",
+        "z": "34c67249b3fb3228",
+        "g": "f51b0b537a865a9e",
+        "name": "",
+        "server": "server",
+        "host": "",
+        "port": "2000",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "",
+        "topic": "",
+        "base64": false,
+        "tls": "",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "ee638d3c6a64ae1f",
+                "c039d7b70800052e"
+            ]
+        ]
+    },
+    {
+        "id": "ee638d3c6a64ae1f",
+        "type": "debug",
+        "z": "34c67249b3fb3228",
+        "g": "f51b0b537a865a9e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ca46e959629498a5",
+        "type": "tcp out",
+        "z": "34c67249b3fb3228",
+        "g": "f51b0b537a865a9e",
+        "name": "",
+        "host": "",
+        "port": "",
+        "beserver": "reply",
+        "base64": false,
+        "end": false,
+        "tls": "",
+        "x": 570,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c039d7b70800052e",
+        "type": "function",
+        "z": "34c67249b3fb3228",
+        "g": "f51b0b537a865a9e",
+        "name": "Send Message",
+        "func": "// Send answer with line break\nmsg.payload = \"This is Server 2000\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 80,
+        "wires": [
+            [
+                "ca46e959629498a5"
+            ]
+        ]
+    },
+    {
+        "id": "4d5e34f6cc4d77ed",
+        "type": "tcp in",
+        "z": "3776292d6430ee45",
+        "g": "7c8030c4cd5216ea",
+        "name": "",
+        "server": "server",
+        "host": "",
+        "port": "2001",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "",
+        "topic": "",
+        "base64": false,
+        "tls": "",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "a5d0a294f153407a",
+                "9c62efe879970e10"
+            ]
+        ]
+    },
+    {
+        "id": "a5d0a294f153407a",
+        "type": "debug",
+        "z": "3776292d6430ee45",
+        "g": "7c8030c4cd5216ea",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c33c83edd85e008a",
+        "type": "tcp out",
+        "z": "3776292d6430ee45",
+        "g": "7c8030c4cd5216ea",
+        "name": "",
+        "host": "",
+        "port": "",
+        "beserver": "reply",
+        "base64": false,
+        "end": false,
+        "tls": "",
+        "x": 570,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9c62efe879970e10",
+        "type": "function",
+        "z": "3776292d6430ee45",
+        "g": "7c8030c4cd5216ea",
+        "name": "Send Message",
+        "func": "// Send answer with line break\nmsg.payload = \"This is Server 2001\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 80,
+        "wires": [
+            [
+                "c33c83edd85e008a"
+            ]
+        ]
+    }
+]
