@@ -1,0 +1,136 @@
+[
+    {
+        "id": "e93664398ff10280",
+        "type": "inject",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "connected",
+        "payloadType": "flow",
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "76af247113b49eaa",
+                "9de541e55d1d8bec"
+            ]
+        ]
+    },
+    {
+        "id": "76af247113b49eaa",
+        "type": "tcp request",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "server": "localhost",
+        "port": "24",
+        "out": "time",
+        "ret": "buffer",
+        "splitc": "0",
+        "newline": "",
+        "trim": false,
+        "tls": "",
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [
+                "e9c44992b3aea8f2"
+            ]
+        ]
+    },
+    {
+        "id": "fd4422d2dc38a594",
+        "type": "catch",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "scope": [
+            "76af247113b49eaa"
+        ],
+        "uncaught": false,
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "ff29945b6aa1ae03"
+            ]
+        ]
+    },
+    {
+        "id": "e9c44992b3aea8f2",
+        "type": "change",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "connected",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 830,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ff29945b6aa1ae03",
+        "type": "change",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "connected",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9de541e55d1d8bec",
+        "type": "debug",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 80,
+        "wires": []
+    }
+]
