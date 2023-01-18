@@ -1,0 +1,82 @@
+[
+    {
+        "id": "81eebbba42941173",
+        "type": "function",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "ErrorFunction",
+        "func": "\nnode.error(\"This is an error\", msg);\n\nreturn void 0;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d618ace6284f3db3",
+        "type": "catch",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "scope": [
+            "81eebbba42941173"
+        ],
+        "uncaught": false,
+        "x": 170,
+        "y": 320,
+        "wires": [
+            [
+                "93fe9f6fa3f0d0f7"
+            ]
+        ]
+    },
+    {
+        "id": "ba73fd4ca41b1c37",
+        "type": "inject",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "81eebbba42941173"
+            ]
+        ]
+    },
+    {
+        "id": "93fe9f6fa3f0d0f7",
+        "type": "debug",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 320,
+        "wires": []
+    }
+]
