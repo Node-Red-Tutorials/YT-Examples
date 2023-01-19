@@ -23,10 +23,13 @@ In the folder `03_JavaScript_Nodes` there are some basic flows using the `functi
 Making this node incredibly powerful.
 
 ## Dashboard
-Last but not least the `04_Dashboard` folder. It includes a tutorial for every normal node in the Node-Red Dashboard. Including the `template` and `ui control` node. Further extending the basic functionality using the `table` node.
+Next the `04_Dashboard` folder. It includes a tutorial for every normal node in the Node-Red Dashboard. Including the `template` and `ui control` node. Further extending the basic functionality using the `table` node.
+
+## Communication
+Last but not least the `05_Communication` folder. In here we teach you how to communicate with the world in different ways. For example TCP.
 
 # Contact
-If you want to contact me, weather you have a problem with your Node-Red or you have a Video recomendation, either write a Comment on my YouTube Channel linked below or use the following email: noderedtutorials@gmail.com
+If you want to contact us, weather you have a problem with your Node-Red or you have a Video recomendation, either write a Comment on my YouTube Channel linked below or use the following email: noderedtutorials@gmail.com
 
 # Links
 [YouTube](https://www.youtube.com/@node-red-tutorials)
