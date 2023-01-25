@@ -1,0 +1,187 @@
+[
+    {
+        "id": "000ae83670f4528c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "9036880343e24fe8",
+        "type": "group",
+        "z": "000ae83670f4528c",
+        "name": "Warning and Error",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "c86900d576faa8b0",
+            "fab7132d0358d4a9"
+        ],
+        "x": 54,
+        "y": 39,
+        "w": 432,
+        "h": 82
+    },
+    {
+        "id": "ead83541fc543f27",
+        "type": "group",
+        "z": "000ae83670f4528c",
+        "name": "Status",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "ed1bc0d97da0bdc5",
+            "fa1c40fd4a0e6790",
+            "6e5a8c6e0421df09",
+            "0e279753f034628c"
+        ],
+        "x": 54,
+        "y": 159,
+        "w": 392,
+        "h": 162
+    },
+    {
+        "id": "c86900d576faa8b0",
+        "type": "function",
+        "z": "000ae83670f4528c",
+        "g": "9036880343e24fe8",
+        "name": "WARN_ERROR",
+        "func": "// Show warning in Debug Tab\nnode.warn(\"Warning\")\n\n// Show error in Debug Tab\nnode.error(\"Error\")",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fab7132d0358d4a9",
+        "type": "inject",
+        "z": "000ae83670f4528c",
+        "g": "9036880343e24fe8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "c86900d576faa8b0"
+            ]
+        ]
+    },
+    {
+        "id": "ed1bc0d97da0bdc5",
+        "type": "function",
+        "z": "000ae83670f4528c",
+        "g": "ead83541fc543f27",
+        "name": "Status",
+        "func": "// Set const topic to msg.topic\nconst topic = msg.topic;\n\nif (topic == \"Error\") {\n    node.status({\n        \"fill\" : \"red\",\n        \"shape\" : \"dot\",\n        \"text\" : topic\n    })\n}\n\nif (topic == \"Warning\") {\n    node.status({\n        \"fill\" : \"yellow\",\n        \"shape\" : \"ring\",\n        \"text\" : topic\n    })\n}\n\nif (topic == \"Clear\") {\n    node.status({})\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa1c40fd4a0e6790",
+        "type": "inject",
+        "z": "000ae83670f4528c",
+        "g": "ead83541fc543f27",
+        "name": "Error",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Error",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "ed1bc0d97da0bdc5"
+            ]
+        ]
+    },
+    {
+        "id": "6e5a8c6e0421df09",
+        "type": "inject",
+        "z": "000ae83670f4528c",
+        "g": "ead83541fc543f27",
+        "name": "Warning",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Warning",
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "ed1bc0d97da0bdc5"
+            ]
+        ]
+    },
+    {
+        "id": "0e279753f034628c",
+        "type": "inject",
+        "z": "000ae83670f4528c",
+        "g": "ead83541fc543f27",
+        "name": "Clear",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Clear",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "ed1bc0d97da0bdc5"
+            ]
+        ]
+    }
+]
