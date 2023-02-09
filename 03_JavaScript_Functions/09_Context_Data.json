@@ -1,0 +1,125 @@
+[
+    {
+        "id": "000ae83670f4528c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c09fa9a922e6cc18",
+        "type": "group",
+        "z": "000ae83670f4528c",
+        "name": "Context Data",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "749299f551271584",
+            "4ef13a72abcc017c",
+            "9222cdd29632dac7",
+            "eaecb7c26cb1c0cf"
+        ],
+        "x": 114,
+        "y": 119,
+        "w": 472,
+        "h": 142
+    },
+    {
+        "id": "749299f551271584",
+        "type": "inject",
+        "z": "000ae83670f4528c",
+        "g": "c09fa9a922e6cc18",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "4ef13a72abcc017c"
+            ]
+        ]
+    },
+    {
+        "id": "4ef13a72abcc017c",
+        "type": "function",
+        "z": "000ae83670f4528c",
+        "g": "c09fa9a922e6cc18",
+        "name": "Context Data",
+        "func": "// get value\nvar contextVar = context.get(\"value\") || 0;\nvar flowVar = flow.get(\"value\") || 0;\nvar globalVar = global.get(\"value\") || 0;\n\n// increase var\ncontextVar ++;\nflowVar ++;\nglobalVar ++;\n\n// write to context Data\ncontext.set(\"value\", contextVar);\nflow.set(\"value\", flowVar);\nglobal.set(\"value\", globalVar);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9222cdd29632dac7",
+        "type": "function",
+        "z": "000ae83670f4528c",
+        "g": "c09fa9a922e6cc18",
+        "name": "Context Data Object",
+        "func": "flow.set(\"sensors.sensor1.value\", 5)\nflow.set(\"sensors.sensor2.value\", 5)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eaecb7c26cb1c0cf",
+        "type": "inject",
+        "z": "000ae83670f4528c",
+        "g": "c09fa9a922e6cc18",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 220,
+        "wires": [
+            [
+                "9222cdd29632dac7"
+            ]
+        ]
+    }
+]
