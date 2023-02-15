@@ -1,0 +1,368 @@
+[
+    {
+        "id": "66e93a2fc2940b5b",
+        "type": "openweathermap",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Los Angeles",
+        "country": "US",
+        "language": "en",
+        "x": 490,
+        "y": 240,
+        "wires": [
+            [
+                "8126ef5ed8ab10c3",
+                "0f1921c5dd18985e"
+            ]
+        ]
+    },
+    {
+        "id": "8b573e83f5d9f260",
+        "type": "inject",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 240,
+        "wires": [
+            [
+                "66e93a2fc2940b5b"
+            ]
+        ]
+    },
+    {
+        "id": "8126ef5ed8ab10c3",
+        "type": "debug",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3f8bddf54142a1bc",
+        "type": "ui_text",
+        "z": "ab7cdbcd4ebd23cc",
+        "group": "f550f4fc8cbb223a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperature LA",
+        "format": "{{msg.payload}}°C",
+        "layout": "row-spread",
+        "className": "",
+        "x": 880,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "0f1921c5dd18985e",
+        "type": "change",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.tempc",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 360,
+        "wires": [
+            [
+                "3f8bddf54142a1bc"
+            ]
+        ]
+    },
+    {
+        "id": "c9bac467cd1b7074",
+        "type": "ui_form",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "label": "",
+        "group": "5a24aafa68e158da",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "City",
+                "value": "city",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Country",
+                "value": "country",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "city": "",
+            "country": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 190,
+        "y": 640,
+        "wires": [
+            [
+                "4838e12c61aac615"
+            ]
+        ]
+    },
+    {
+        "id": "4838e12c61aac615",
+        "type": "change",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "input",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bcfc5d2f7868327e",
+        "type": "openweathermap",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "",
+        "country": "",
+        "language": "en",
+        "x": 650,
+        "y": 820,
+        "wires": [
+            [
+                "a5945268dbdedfe5",
+                "8664c89338b94301"
+            ]
+        ]
+    },
+    {
+        "id": "9f50aac6133dcbcc",
+        "type": "inject",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "2",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 820,
+        "wires": [
+            [
+                "52635695c9425630"
+            ]
+        ]
+    },
+    {
+        "id": "52635695c9425630",
+        "type": "function",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "function 1",
+        "func": "var inp = global.get(\"input\")\n\nmsg = {\n    location:{\n        city: inp.city,\n        country: inp.country\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 820,
+        "wires": [
+            [
+                "bcfc5d2f7868327e"
+            ]
+        ]
+    },
+    {
+        "id": "a5945268dbdedfe5",
+        "type": "change",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.location",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 820,
+        "wires": [
+            [
+                "0861981f777927b0"
+            ]
+        ]
+    },
+    {
+        "id": "8664c89338b94301",
+        "type": "change",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.tempc",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 860,
+        "wires": [
+            [
+                "034c678efa88ea66"
+            ]
+        ]
+    },
+    {
+        "id": "034c678efa88ea66",
+        "type": "ui_text",
+        "z": "ab7cdbcd4ebd23cc",
+        "group": "5a24aafa68e158da",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperature",
+        "format": "{{msg.payload}}°C",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1090,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "0861981f777927b0",
+        "type": "ui_text",
+        "z": "ab7cdbcd4ebd23cc",
+        "group": "5a24aafa68e158da",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Location",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 1080,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "f550f4fc8cbb223a",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "11130b2099b2c68d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5a24aafa68e158da",
+        "type": "ui_group",
+        "name": "Dynmic Input",
+        "tab": "11130b2099b2c68d",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "11130b2099b2c68d",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
