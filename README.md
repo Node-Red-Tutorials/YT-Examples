@@ -26,7 +26,10 @@ Making this node incredibly powerful.
 Next the `04_Dashboard` folder. It includes a tutorial for every normal node in the Node-Red Dashboard. Including the `template` and `ui control` node. Further extending the basic functionality using the `table` node.
 
 ## Communication
-Last but not least the `05_Communication` folder. In here we teach you how to communicate with the world in different ways. For example TCP.
+Next the `05_Communication` folder. In here we teach you how to communicate with the world in different ways. For example TCP.
+
+## RPI
+In the `06_RPI` folder, you will find node-red code based on a raspberry pi.
 
 # Contact
 If you want to contact us, weather you have a problem with your Node-Red or you have a Video recomendation, either write a Comment on my YouTube Channel linked below or use the following email: noderedtutorials@gmail.com
