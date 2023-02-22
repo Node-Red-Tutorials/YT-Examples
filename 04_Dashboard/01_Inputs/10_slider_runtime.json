@@ -1,0 +1,155 @@
+[
+    {
+        "id": "5c776d97a707b983",
+        "type": "group",
+        "z": "6bf32ac4d2d2f3e7",
+        "name": "Custom Slider on Runtime",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a77f34ebcfb195e4",
+            "980c4cab4d55a1cb",
+            "5e3ae18360646d76",
+            "8b50dcbcb5c8014e",
+            "b1279d683002d2ba"
+        ],
+        "x": 114,
+        "y": 559,
+        "w": 772,
+        "h": 122
+    },
+    {
+        "id": "a77f34ebcfb195e4",
+        "type": "ui_slider",
+        "z": "6bf32ac4d2d2f3e7",
+        "g": "5c776d97a707b983",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "05bb3b04e392eb55",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": "10",
+        "className": "",
+        "x": 590,
+        "y": 640,
+        "wires": [
+            [
+                "980c4cab4d55a1cb"
+            ]
+        ]
+    },
+    {
+        "id": "980c4cab4d55a1cb",
+        "type": "debug",
+        "z": "6bf32ac4d2d2f3e7",
+        "g": "5c776d97a707b983",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "5e3ae18360646d76",
+        "type": "function",
+        "z": "6bf32ac4d2d2f3e7",
+        "g": "5c776d97a707b983",
+        "name": "function 1",
+        "func": "const minimum = msg.payload\n\n\nmsg = {\n    ui_control: {\n        min: minimum,\n        max: 1000,\n        step: 1\n    },\n    payload: 500\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 640,
+        "wires": [
+            [
+                "a77f34ebcfb195e4",
+                "b1279d683002d2ba"
+            ]
+        ]
+    },
+    {
+        "id": "8b50dcbcb5c8014e",
+        "type": "inject",
+        "z": "6bf32ac4d2d2f3e7",
+        "g": "5c776d97a707b983",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "-20",
+        "payloadType": "num",
+        "x": 210,
+        "y": 640,
+        "wires": [
+            [
+                "5e3ae18360646d76"
+            ]
+        ]
+    },
+    {
+        "id": "b1279d683002d2ba",
+        "type": "debug",
+        "z": "6bf32ac4d2d2f3e7",
+        "g": "5c776d97a707b983",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "05bb3b04e392eb55",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "0a5db54aed9dcfcd",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0a5db54aed9dcfcd",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
