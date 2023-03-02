@@ -1,0 +1,327 @@
+[
+    {
+        "id": "fcc9f698f18deefd",
+        "type": "group",
+        "z": "1e15dd8f24dbe1c4",
+        "name": "Sense Hat Inputs",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "c0d4a07d7ed9efc0",
+            "d7041cd77c3fb51c",
+            "e8403469e2106928",
+            "9afbe0663d16a412",
+            "70749fa8fb472472",
+            "c38544ee0f33de92",
+            "0c24c64b300baf4b",
+            "39814507babd7cdf",
+            "12d97d1f41761fbd",
+            "50df8ad3e9f662ad"
+        ],
+        "x": 174,
+        "y": 139,
+        "w": 872,
+        "h": 202
+    },
+    {
+        "id": "c0d4a07d7ed9efc0",
+        "type": "rpi-sensehat in",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "fcc9f698f18deefd",
+        "name": "",
+        "motion": true,
+        "env": false,
+        "stick": false,
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "d7041cd77c3fb51c"
+            ]
+        ]
+    },
+    {
+        "id": "d7041cd77c3fb51c",
+        "type": "change",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "fcc9f698f18deefd",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gyroscope.x",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Acceleration - X",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 180,
+        "wires": [
+            [
+                "9afbe0663d16a412"
+            ]
+        ]
+    },
+    {
+        "id": "e8403469e2106928",
+        "type": "ui_chart",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "fcc9f698f18deefd",
+        "name": "",
+        "group": "d001b017d781c78d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Acceleration - X",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No Data Available",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 940,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9afbe0663d16a412",
+        "type": "delay",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "fcc9f698f18deefd",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 180,
+        "wires": [
+            [
+                "e8403469e2106928"
+            ]
+        ]
+    },
+    {
+        "id": "70749fa8fb472472",
+        "type": "rpi-sensehat in",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "fcc9f698f18deefd",
+        "name": "",
+        "motion": false,
+        "env": true,
+        "stick": false,
+        "x": 260,
+        "y": 240,
+        "wires": [
+            [
+                "c38544ee0f33de92"
+            ]
+        ]
+    },
+    {
+        "id": "c38544ee0f33de92",
+        "type": "change",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "fcc9f698f18deefd",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperature",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Temperature [°C]",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 240,
+        "wires": [
+            [
+                "0c24c64b300baf4b"
+            ]
+        ]
+    },
+    {
+        "id": "0c24c64b300baf4b",
+        "type": "delay",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "fcc9f698f18deefd",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 240,
+        "wires": [
+            [
+                "39814507babd7cdf"
+            ]
+        ]
+    },
+    {
+        "id": "39814507babd7cdf",
+        "type": "ui_chart",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "fcc9f698f18deefd",
+        "name": "",
+        "group": "d001b017d781c78d",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No Data Available",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 930,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "12d97d1f41761fbd",
+        "type": "rpi-sensehat in",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "fcc9f698f18deefd",
+        "name": "",
+        "motion": false,
+        "env": false,
+        "stick": true,
+        "x": 260,
+        "y": 300,
+        "wires": [
+            [
+                "50df8ad3e9f662ad"
+            ]
+        ]
+    },
+    {
+        "id": "50df8ad3e9f662ad",
+        "type": "debug",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "fcc9f698f18deefd",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d001b017d781c78d",
+        "type": "ui_group",
+        "name": "Input",
+        "tab": "10e2f73be9fec47c",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "10e2f73be9fec47c",
+        "type": "ui_tab",
+        "name": "Raspberry Pi",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
