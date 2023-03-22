@@ -1,0 +1,97 @@
+[
+    {
+        "id": "8a2548731aa9b535",
+        "type": "ui_gauge",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "group": "32738da6e41cefae",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "1",
+        "seg2": "4",
+        "diff": false,
+        "className": "",
+        "x": 610,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "277fc8f7a2d46e40",
+        "type": "inject",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "-1",
+        "payloadType": "num",
+        "x": 210,
+        "y": 320,
+        "wires": [
+            [
+                "c6c9865e4245a9ec"
+            ]
+        ]
+    },
+    {
+        "id": "c6c9865e4245a9ec",
+        "type": "function",
+        "z": "ab7cdbcd4ebd23cc",
+        "name": "function 1",
+        "func": "const value = msg.payload\n\n\nmsg = {\n    ui_control:{\n        gtype: \"gage\",\n        min: -10,\n        max: 100,\n        colors: [\"blue\", \"red\", \"green\"],\n        seg1: 10,\n        seg2: 60\n    }, \n    payload: value\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 320,
+        "wires": [
+            [
+                "8a2548731aa9b535"
+            ]
+        ]
+    },
+    {
+        "id": "32738da6e41cefae",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "2ccfa150d6fb4300",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2ccfa150d6fb4300",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
