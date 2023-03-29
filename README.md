@@ -1,3 +1,5 @@
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/NodeRedTutorial)
+
 # YT-Examples
 Code Examples for the Node-Red-Tutorials YouTube Channel.
 
@@ -38,5 +40,3 @@ If you want to contact us, weather you have a problem with your Node-Red or you 
 [YouTube](https://www.youtube.com/@node-red-tutorials)
 
 [Instagram](https://www.instagram.com/node_red_tutorials/)
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/NodeRedTutorial)
