@@ -1,0 +1,203 @@
+[
+    {
+        "id": "ed35045ff9965409",
+        "type": "group",
+        "z": "1e15dd8f24dbe1c4",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "c5c67626b4466ff8",
+            "af2e3369150364b3",
+            "2567f91e72ee48b9",
+            "fd04b13c193d51b5",
+            "b9d02d954796887a",
+            "b8c58ddb569bfdaf"
+        ],
+        "x": 314,
+        "y": 159,
+        "w": 792,
+        "h": 142
+    },
+    {
+        "id": "c5c67626b4466ff8",
+        "type": "rpi-gpio in",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "ed35045ff9965409",
+        "name": "",
+        "pin": "17",
+        "intype": "down",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 400,
+        "y": 220,
+        "wires": [
+            [
+                "b9d02d954796887a"
+            ]
+        ]
+    },
+    {
+        "id": "af2e3369150364b3",
+        "type": "ui_template",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "ed35045ff9965409",
+        "group": "5e88d4e9578032ea",
+        "name": "",
+        "order": 2,
+        "width": 2,
+        "height": 2,
+        "format": "<div id=\"indicator\"></div>\n\n<style>\n    #indicator {\n        width: 50px;\n        height: 50px;\n        background-color: {{msg.payload}};\n        border-radius: 50%;\n        margin: auto;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1020,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2567f91e72ee48b9",
+        "type": "change",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "ed35045ff9965409",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 200,
+        "wires": [
+            [
+                "af2e3369150364b3"
+            ]
+        ]
+    },
+    {
+        "id": "fd04b13c193d51b5",
+        "type": "change",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "ed35045ff9965409",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 240,
+        "wires": [
+            [
+                "af2e3369150364b3"
+            ]
+        ]
+    },
+    {
+        "id": "b9d02d954796887a",
+        "type": "switch",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "ed35045ff9965409",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 590,
+        "y": 220,
+        "wires": [
+            [
+                "2567f91e72ee48b9"
+            ],
+            [
+                "fd04b13c193d51b5"
+            ]
+        ]
+    },
+    {
+        "id": "b8c58ddb569bfdaf",
+        "type": "inject",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "ed35045ff9965409",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "fd04b13c193d51b5"
+            ]
+        ]
+    },
+    {
+        "id": "5e88d4e9578032ea",
+        "type": "ui_group",
+        "name": "GPIO Input",
+        "tab": "33f8f7db6b9d41f0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "33f8f7db6b9d41f0",
+        "type": "ui_tab",
+        "name": "RPI",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
