@@ -1,0 +1,190 @@
+[
+    {
+        "id": "7b67268b8d056df3",
+        "type": "ui_upload",
+        "z": "aa4ed42c901d08f1",
+        "group": "f550f4fc8cbb223a",
+        "title": "upload",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 5,
+        "chunk": 256,
+        "transfer": "binary",
+        "x": 210,
+        "y": 180,
+        "wires": [
+            [
+                "b1febd3fab24a25a"
+            ]
+        ]
+    },
+    {
+        "id": "b1febd3fab24a25a",
+        "type": "join",
+        "z": "aa4ed42c901d08f1",
+        "name": "",
+        "mode": "custom",
+        "build": "buffer",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 390,
+        "y": 180,
+        "wires": [
+            [
+                "a187cde19b2a6884"
+            ]
+        ]
+    },
+    {
+        "id": "a187cde19b2a6884",
+        "type": "function",
+        "z": "aa4ed42c901d08f1",
+        "name": "toBase64",
+        "func": "msg.payload = msg.payload.toString(\"base64\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "34297cdba7db8bfc"
+            ]
+        ]
+    },
+    {
+        "id": "34297cdba7db8bfc",
+        "type": "file",
+        "z": "aa4ed42c901d08f1",
+        "name": "",
+        "filename": "/Users/yunus/Documents/Gleich wieder löschen/test.txt",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 950,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17743cbeb2f85f6c",
+        "type": "file in",
+        "z": "aa4ed42c901d08f1",
+        "name": "",
+        "filename": "/Users/yunus/Documents/Gleich wieder löschen/test.txt",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 550,
+        "y": 300,
+        "wires": [
+            [
+                "b8bad35203bf1be6"
+            ]
+        ]
+    },
+    {
+        "id": "58191d8ed19cb5a8",
+        "type": "inject",
+        "z": "aa4ed42c901d08f1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "17743cbeb2f85f6c"
+            ]
+        ]
+    },
+    {
+        "id": "b8bad35203bf1be6",
+        "type": "function",
+        "z": "aa4ed42c901d08f1",
+        "name": "toBuffer",
+        "func": "msg.payload = Buffer.from(msg.payload, \"base64\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 300,
+        "wires": [
+            [
+                "15093aea7f36a95d"
+            ]
+        ]
+    },
+    {
+        "id": "15093aea7f36a95d",
+        "type": "file",
+        "z": "aa4ed42c901d08f1",
+        "name": "",
+        "filename": "/Users/yunus/Documents/Gleich wieder löschen/test.jpg",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1250,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f550f4fc8cbb223a",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "11130b2099b2c68d",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "11130b2099b2c68d",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
