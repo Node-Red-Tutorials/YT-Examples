@@ -1,0 +1,90 @@
+[
+    {
+        "id": "9d0f1686a4db168d",
+        "type": "group",
+        "z": "1e15dd8f24dbe1c4",
+        "name": "GPIO Output",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "23ba7bb1f67c6127",
+            "12fe4224965a35e1"
+        ],
+        "x": 414,
+        "y": 259,
+        "w": 352,
+        "h": 82
+    },
+    {
+        "id": "23ba7bb1f67c6127",
+        "type": "rpi-gpio out",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "9d0f1686a4db168d",
+        "name": "",
+        "pin": "23",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 680,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "12fe4224965a35e1",
+        "type": "ui_switch",
+        "z": "1e15dd8f24dbe1c4",
+        "g": "9d0f1686a4db168d",
+        "name": "",
+        "label": "LED",
+        "tooltip": "Activates the attached LED",
+        "group": "2868bfbda415dbf3",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 490,
+        "y": 300,
+        "wires": [
+            [
+                "23ba7bb1f67c6127"
+            ]
+        ]
+    },
+    {
+        "id": "2868bfbda415dbf3",
+        "type": "ui_group",
+        "name": "GPIO Output",
+        "tab": "ce609bbfb55a19dd",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ce609bbfb55a19dd",
+        "type": "ui_tab",
+        "name": "RPI",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
