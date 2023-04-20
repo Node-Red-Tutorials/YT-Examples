@@ -1,0 +1,183 @@
+[
+    {
+        "id": "d29622ee08e06572",
+        "type": "function",
+        "z": "aa4ed42c901d08f1",
+        "name": "EditPDF",
+        "func": "let pdfBytes = msg.payload\nconst signatureBytes = flow.get(\"signature\")\n\nconst pdfDoc = await pdfLib.PDFDocument.load(pdfBytes)\n\nfor (let [index, page] of pdfDoc.getPages().entries()) {\n\n    const pdfImage = await pdfDoc.embedPng(signatureBytes)\n\n    /*\n    The image position is measured using GIMP with the ruler set to the mode \"pt\".\n    Bc the origin in GIMP is in the top left corner and the origin of pdf-lib is in the bottom left corner, the measure-\n    ments are subtracted from the total height (WIDTH (x) DOESENT NEED TO BE CHANGED)\n\n    ^ <-total-height    | <- subtracted height\n    |                   |\n    |                   |\n    |\n    |\n     */\n\n    //Signature add\n    page.drawImage(pdfImage, {\n        x: 140,\n        y: page.getHeight() - 510,\n        width: 100,\n        height: 40\n    })\n\n    //TEXT\n    page.drawText(\"Max Test\", {\n        x: 130,\n        y: page.getHeight() - 333\n    })\n\n    page.drawText(\"Teststreet 1\", {\n        x: 130,\n        y: page.getHeight() - 378\n    })\n\n    page.drawText(new Date().toLocaleDateString(\"de-DE\"), {\n        x: 130,\n        y: page.getHeight() - 424\n    })\n}\n\npdfBytes = await pdfDoc.save()\n\nmsg.payload = new Buffer(pdfBytes)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pdfLib",
+                "module": "pdf-lib"
+            }
+        ],
+        "x": 500,
+        "y": 280,
+        "wires": [
+            [
+                "736e1626192493b8",
+                "270aee11c2643501"
+            ]
+        ]
+    },
+    {
+        "id": "68689dd480553eec",
+        "type": "file in",
+        "z": "aa4ed42c901d08f1",
+        "name": "UneditedPDF",
+        "filename": "",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "d29622ee08e06572"
+            ]
+        ]
+    },
+    {
+        "id": "6aa416d19f94a203",
+        "type": "file in",
+        "z": "aa4ed42c901d08f1",
+        "name": "SignatureImage",
+        "filename": "",
+        "filenameType": "str",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "4398aabfd8256a96"
+            ]
+        ]
+    },
+    {
+        "id": "4398aabfd8256a96",
+        "type": "change",
+        "z": "aa4ed42c901d08f1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "signature",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "508907b5bec8ef8d",
+        "type": "inject",
+        "z": "aa4ed42c901d08f1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "6aa416d19f94a203"
+            ]
+        ]
+    },
+    {
+        "id": "736e1626192493b8",
+        "type": "file",
+        "z": "aa4ed42c901d08f1",
+        "name": "EditedPDF",
+        "filename": "",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 830,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3f0d58aaa6f00612",
+        "type": "inject",
+        "z": "aa4ed42c901d08f1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 280,
+        "wires": [
+            [
+                "68689dd480553eec"
+            ]
+        ]
+    },
+    {
+        "id": "270aee11c2643501",
+        "type": "debug",
+        "z": "aa4ed42c901d08f1",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 340,
+        "wires": []
+    }
+]
