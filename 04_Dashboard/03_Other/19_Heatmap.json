@@ -1,0 +1,262 @@
+[
+    {
+        "id": "1327bb6a73533596",
+        "type": "group",
+        "z": "4d683fe68ad34c68",
+        "name": "Heatmap",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "524503ed2b737604",
+            "8240830cedd4c280",
+            "142c1a05a1824716",
+            "981d9c2bed7e5ba0",
+            "486f2c820325d50a",
+            "79e84e65b46e82a7",
+            "bd47e82ca38dfca9"
+        ],
+        "x": 54,
+        "y": 379,
+        "w": 1032,
+        "h": 162
+    },
+    {
+        "id": "524503ed2b737604",
+        "type": "ui_heat_map",
+        "z": "4d683fe68ad34c68",
+        "g": "1327bb6a73533596",
+        "group": "71864096d7e821cd",
+        "order": 1,
+        "width": 8,
+        "height": 8,
+        "name": "",
+        "rows": "2",
+        "columns": "2",
+        "minMax": false,
+        "minimumValue": 0,
+        "maximumValue": 0,
+        "backgroundType": "none",
+        "backgroundColor": "#ffffff",
+        "image": "never",
+        "radius": "30",
+        "opacity": 0.6,
+        "blur": "1",
+        "showValues": false,
+        "gridType": "vals",
+        "valuesDecimals": 0,
+        "showLegend": false,
+        "legendType": "vals",
+        "legendDecimals": 0,
+        "legendCount": 2,
+        "x": 1000,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8240830cedd4c280",
+        "type": "function",
+        "z": "4d683fe68ad34c68",
+        "g": "1327bb6a73533596",
+        "name": "Generate Data",
+        "func": "const columns = flow.get(\"columns\") || 2;\nconst rows = flow.get(\"rows\") || 2;\n\nvar heatmap_array = [];\n\nfor (let i = 0; i < columns * rows; i++) {\n    heatmap_array.push(Math.random() * 10);\n}\n\nmsg = {\n    \"payload\": heatmap_array,\n    \"rows\": rows,\n    \"columns\": columns\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 460,
+        "wires": [
+            [
+                "524503ed2b737604"
+            ]
+        ]
+    },
+    {
+        "id": "142c1a05a1824716",
+        "type": "ui_slider",
+        "z": "4d683fe68ad34c68",
+        "g": "1327bb6a73533596",
+        "name": "",
+        "label": "Rows",
+        "tooltip": "",
+        "group": "0071ec0c3ccfdf9e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "2",
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 330,
+        "y": 420,
+        "wires": [
+            [
+                "486f2c820325d50a"
+            ]
+        ]
+    },
+    {
+        "id": "981d9c2bed7e5ba0",
+        "type": "ui_slider",
+        "z": "4d683fe68ad34c68",
+        "g": "1327bb6a73533596",
+        "name": "",
+        "label": "Column",
+        "tooltip": "",
+        "group": "0071ec0c3ccfdf9e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "2",
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 340,
+        "y": 500,
+        "wires": [
+            [
+                "79e84e65b46e82a7"
+            ]
+        ]
+    },
+    {
+        "id": "486f2c820325d50a",
+        "type": "change",
+        "z": "4d683fe68ad34c68",
+        "g": "1327bb6a73533596",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "rows",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "rows",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 420,
+        "wires": [
+            [
+                "8240830cedd4c280"
+            ]
+        ]
+    },
+    {
+        "id": "79e84e65b46e82a7",
+        "type": "change",
+        "z": "4d683fe68ad34c68",
+        "g": "1327bb6a73533596",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "columns",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "columns",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 500,
+        "wires": [
+            [
+                "8240830cedd4c280"
+            ]
+        ]
+    },
+    {
+        "id": "bd47e82ca38dfca9",
+        "type": "inject",
+        "z": "4d683fe68ad34c68",
+        "g": "1327bb6a73533596",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "num",
+        "x": 150,
+        "y": 460,
+        "wires": [
+            [
+                "142c1a05a1824716",
+                "981d9c2bed7e5ba0"
+            ]
+        ]
+    },
+    {
+        "id": "71864096d7e821cd",
+        "type": "ui_group",
+        "name": "Heatmap",
+        "tab": "4875f8181b61cd39",
+        "order": 1,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0071ec0c3ccfdf9e",
+        "type": "ui_group",
+        "name": "Settings",
+        "tab": "4875f8181b61cd39",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "4875f8181b61cd39",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
