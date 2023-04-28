@@ -33,6 +33,9 @@ Next the `05_Communication` folder. In here we teach you how to communicate with
 ## RPI
 In the `06_RPI` folder, you will find node-red code based on a raspberry pi.
 
+## External Libraries
+In the `07_External_Libraries` you'll find Examples on how to import npm modules into your node-red.
+
 # Contact
 If you want to contact us, weather you have a problem with your Node-Red or you have a Video recomendation, either write a Comment on my YouTube Channel linked below or use the following email: noderedtutorials@gmail.com
 
