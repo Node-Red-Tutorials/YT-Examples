@@ -1,0 +1,287 @@
+[
+    {
+        "id": "03ab97d7c2865319",
+        "type": "group",
+        "z": "d1a208a4011902fe",
+        "name": "SQL_Basics",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "96bab2db4cd7ac22",
+            "e3be03f5c0b2a86a",
+            "b68b02006f664409",
+            "b6a2b018b7b0c5d0",
+            "58e7ea28204b77f3",
+            "e4b5bbea5b437b1e",
+            "cf385e2d6cd72705",
+            "71a9a11549d72381",
+            "2cdbef6260815d9d",
+            "4e96259209e16eaf",
+            "0c52d0a0a977bd51",
+            "2b1f624e1789fadf"
+        ],
+        "x": 154,
+        "y": 119,
+        "w": 792,
+        "h": 242
+    },
+    {
+        "id": "96bab2db4cd7ac22",
+        "type": "mysql",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "mydb": "eff4ebb7767e4907",
+        "name": "",
+        "x": 650,
+        "y": 160,
+        "wires": [
+            [
+                "b6a2b018b7b0c5d0"
+            ]
+        ]
+    },
+    {
+        "id": "e3be03f5c0b2a86a",
+        "type": "inject",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 160,
+        "wires": [
+            [
+                "b68b02006f664409"
+            ]
+        ]
+    },
+    {
+        "id": "b68b02006f664409",
+        "type": "function",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "name": "selectAll",
+        "func": "msg.topic = \"SELECT * FROM sensor_values;\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "96bab2db4cd7ac22"
+            ]
+        ]
+    },
+    {
+        "id": "b6a2b018b7b0c5d0",
+        "type": "debug",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "58e7ea28204b77f3",
+        "type": "function",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "name": "insertValue",
+        "func": "msg.topic = \"INSERT INTO sensor_values VALUES (NOW(), \" + (Math.random() * 100).toFixed(2) + \");\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 240,
+        "wires": [
+            [
+                "cf385e2d6cd72705"
+            ]
+        ]
+    },
+    {
+        "id": "e4b5bbea5b437b1e",
+        "type": "inject",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 240,
+        "wires": [
+            [
+                "58e7ea28204b77f3"
+            ]
+        ]
+    },
+    {
+        "id": "cf385e2d6cd72705",
+        "type": "mysql",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "mydb": "eff4ebb7767e4907",
+        "name": "",
+        "x": 650,
+        "y": 240,
+        "wires": [
+            [
+                "71a9a11549d72381"
+            ]
+        ]
+    },
+    {
+        "id": "71a9a11549d72381",
+        "type": "debug",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2cdbef6260815d9d",
+        "type": "function",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "name": "deleteAll",
+        "func": "msg.topic = \"DELETE FROM sensor_values;\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 320,
+        "wires": [
+            [
+                "0c52d0a0a977bd51"
+            ]
+        ]
+    },
+    {
+        "id": "4e96259209e16eaf",
+        "type": "inject",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 320,
+        "wires": [
+            [
+                "2cdbef6260815d9d"
+            ]
+        ]
+    },
+    {
+        "id": "0c52d0a0a977bd51",
+        "type": "mysql",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "mydb": "eff4ebb7767e4907",
+        "name": "",
+        "x": 650,
+        "y": 320,
+        "wires": [
+            [
+                "2b1f624e1789fadf"
+            ]
+        ]
+    },
+    {
+        "id": "2b1f624e1789fadf",
+        "type": "debug",
+        "z": "d1a208a4011902fe",
+        "g": "03ab97d7c2865319",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "eff4ebb7767e4907",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "192.168.1.118",
+        "port": "3306",
+        "db": "tutorial",
+        "tz": "",
+        "charset": "UTF8"
+    }
+]
