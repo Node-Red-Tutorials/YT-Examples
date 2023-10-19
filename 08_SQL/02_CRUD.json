@@ -1,0 +1,728 @@
+[
+    {
+        "id": "d1a208a4011902fe",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a9c148e4d347377b",
+        "type": "junction",
+        "z": "d1a208a4011902fe",
+        "x": 260,
+        "y": 140,
+        "wires": [
+            [
+                "094c6561ca964c19",
+                "3dd895559e524602"
+            ]
+        ]
+    },
+    {
+        "id": "7bbce062412ebe57",
+        "type": "mysql",
+        "z": "d1a208a4011902fe",
+        "mydb": "eff4ebb7767e4907",
+        "name": "",
+        "x": 650,
+        "y": 100,
+        "wires": [
+            [
+                "60ce4ef3165bec5f"
+            ]
+        ]
+    },
+    {
+        "id": "3dd895559e524602",
+        "type": "function",
+        "z": "d1a208a4011902fe",
+        "name": "selectAll",
+        "func": "msg.topic = \"SELECT * FROM sensor_values;\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 100,
+        "wires": [
+            [
+                "7bbce062412ebe57"
+            ]
+        ]
+    },
+    {
+        "id": "2402d467851aafd1",
+        "type": "function",
+        "z": "d1a208a4011902fe",
+        "name": "insertValue",
+        "func": "const newValue = flow.get(\"newValue\");\n\nmsg.topic = \"INSERT INTO sensor_values (timestamp, value) VALUES (NOW(), \" + newValue + \");\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 640,
+        "wires": [
+            [
+                "e2f21dc0e6813159"
+            ]
+        ]
+    },
+    {
+        "id": "e2f21dc0e6813159",
+        "type": "mysql",
+        "z": "d1a208a4011902fe",
+        "mydb": "eff4ebb7767e4907",
+        "name": "",
+        "x": 810,
+        "y": 640,
+        "wires": [
+            [
+                "d40eebcc4477a3a7",
+                "02612b7c5f5c5d3d",
+                "a9c148e4d347377b"
+            ]
+        ]
+    },
+    {
+        "id": "b3534a673c6222fe",
+        "type": "function",
+        "z": "d1a208a4011902fe",
+        "name": "deleteRow",
+        "func": "const selectedValue = flow.get(\"selectedValue.id\");\n\nmsg.topic = \"DELETE FROM sensor_values WHERE id = \" + selectedValue + \";\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 440,
+        "wires": [
+            [
+                "cb62cba251cde646"
+            ]
+        ]
+    },
+    {
+        "id": "cb62cba251cde646",
+        "type": "mysql",
+        "z": "d1a208a4011902fe",
+        "mydb": "eff4ebb7767e4907",
+        "name": "",
+        "x": 810,
+        "y": 440,
+        "wires": [
+            [
+                "a9c148e4d347377b"
+            ]
+        ]
+    },
+    {
+        "id": "60ce4ef3165bec5f",
+        "type": "ui_table",
+        "z": "d1a208a4011902fe",
+        "group": "aebfe53db41988ae",
+        "name": "",
+        "order": 1,
+        "width": 6,
+        "height": 4,
+        "columns": [
+            {
+                "field": "timestamp",
+                "title": "Timestamp",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "value",
+                "title": "Value",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 1,
+        "cts": true,
+        "x": 830,
+        "y": 100,
+        "wires": [
+            [
+                "2479fce365eed900",
+                "75ad314f30a73a1e"
+            ]
+        ]
+    },
+    {
+        "id": "309ea696550b1054",
+        "type": "ui_button",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "group": "aebfe53db41988ae",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-refresh",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 200,
+        "y": 100,
+        "wires": [
+            [
+                "3dd895559e524602",
+                "094c6561ca964c19"
+            ]
+        ]
+    },
+    {
+        "id": "2479fce365eed900",
+        "type": "change",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "selectedValue",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1040,
+        "y": 140,
+        "wires": [
+            [
+                "873871982e235097"
+            ]
+        ]
+    },
+    {
+        "id": "2c017b9f2daa99d6",
+        "type": "ui_button",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "group": "ba785d58fddc3775",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Delete",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-trash",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 370,
+        "y": 440,
+        "wires": [
+            [
+                "b3534a673c6222fe"
+            ]
+        ]
+    },
+    {
+        "id": "245be0e00d776dcb",
+        "type": "ui_button",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "group": "ba785d58fddc3775",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Update",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-pencil",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 380,
+        "y": 380,
+        "wires": [
+            [
+                "4e7016e49ce35799"
+            ]
+        ]
+    },
+    {
+        "id": "873871982e235097",
+        "type": "ui_text_input",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "label": "Current Value",
+        "tooltip": "",
+        "group": "ba785d58fddc3775",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 220,
+        "y": 260,
+        "wires": [
+            [
+                "e431cc43a9292281"
+            ]
+        ]
+    },
+    {
+        "id": "e431cc43a9292281",
+        "type": "change",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "changedValue",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 260,
+        "wires": [
+            [
+                "21ef03a349f81da9"
+            ]
+        ]
+    },
+    {
+        "id": "21ef03a349f81da9",
+        "type": "function",
+        "z": "d1a208a4011902fe",
+        "name": "checkChange",
+        "func": "const inp = parseFloat(msg.payload);\nconst selectedValue = flow.get(\"selectedValue.value\");\n\nif (inp !== selectedValue) {\n    msg.enabled = true;\n} else {\n    msg.enabled = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 260,
+        "wires": [
+            [
+                "245be0e00d776dcb"
+            ]
+        ]
+    },
+    {
+        "id": "8e0daf47c4b5eb21",
+        "type": "inject",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "props": [
+            {
+                "p": "enabled",
+                "v": "false",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 380,
+        "wires": [
+            [
+                "245be0e00d776dcb"
+            ]
+        ]
+    },
+    {
+        "id": "4e7016e49ce35799",
+        "type": "function",
+        "z": "d1a208a4011902fe",
+        "name": "updateRow",
+        "func": "const newValue = flow.get(\"changedValue\");\nconst selectedValue = flow.get(\"selectedValue.id\")\n\nmsg.topic = \"UPDATE sensor_values SET value = \" + newValue +\" WHERE id = \" + selectedValue + \";\"\n \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 380,
+        "wires": [
+            [
+                "24d13f7080136ba7"
+            ]
+        ]
+    },
+    {
+        "id": "24d13f7080136ba7",
+        "type": "mysql",
+        "z": "d1a208a4011902fe",
+        "mydb": "eff4ebb7767e4907",
+        "name": "",
+        "x": 790,
+        "y": 380,
+        "wires": [
+            [
+                "a1170bca3f2ee29e",
+                "a9c148e4d347377b"
+            ]
+        ]
+    },
+    {
+        "id": "094c6561ca964c19",
+        "type": "change",
+        "z": "d1a208a4011902fe",
+        "name": "hideEditValue",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"hide\":[\"Database_Edit_Value\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 60,
+        "wires": [
+            [
+                "872fc209d0739f13"
+            ]
+        ]
+    },
+    {
+        "id": "872fc209d0739f13",
+        "type": "ui_ui_control",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "events": "all",
+        "x": 1260,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "75ad314f30a73a1e",
+        "type": "change",
+        "z": "d1a208a4011902fe",
+        "name": "showEditValue",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"group\":{\"show\":[\"Database_Edit_Value\"]}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1040,
+        "y": 100,
+        "wires": [
+            [
+                "872fc209d0739f13"
+            ]
+        ]
+    },
+    {
+        "id": "da1520a017819f18",
+        "type": "ui_text_input",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "label": "New Value",
+        "tooltip": "",
+        "group": "f5196dfd285c618a",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 390,
+        "y": 560,
+        "wires": [
+            [
+                "c8c19ff7fcfa989c"
+            ]
+        ]
+    },
+    {
+        "id": "c8c19ff7fcfa989c",
+        "type": "change",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "newValue",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "true",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 560,
+        "wires": [
+            [
+                "9da3e5b7d03eb839"
+            ]
+        ]
+    },
+    {
+        "id": "9da3e5b7d03eb839",
+        "type": "ui_button",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "group": "f5196dfd285c618a",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "insert Value",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-plus",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 390,
+        "y": 640,
+        "wires": [
+            [
+                "2402d467851aafd1"
+            ]
+        ]
+    },
+    {
+        "id": "ceacccb8b7ae7003",
+        "type": "inject",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "props": [
+            {
+                "p": "enabled",
+                "v": "false",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 640,
+        "wires": [
+            [
+                "9da3e5b7d03eb839"
+            ]
+        ]
+    },
+    {
+        "id": "d40eebcc4477a3a7",
+        "type": "change",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1030,
+        "y": 660,
+        "wires": [
+            [
+                "9da3e5b7d03eb839"
+            ]
+        ]
+    },
+    {
+        "id": "02612b7c5f5c5d3d",
+        "type": "change",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 620,
+        "wires": [
+            [
+                "da1520a017819f18"
+            ]
+        ]
+    },
+    {
+        "id": "a1170bca3f2ee29e",
+        "type": "change",
+        "z": "d1a208a4011902fe",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "false",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 990,
+        "y": 380,
+        "wires": [
+            [
+                "245be0e00d776dcb"
+            ]
+        ]
+    },
+    {
+        "id": "eff4ebb7767e4907",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "my_sql",
+        "port": "3306",
+        "db": "tutorial",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "aebfe53db41988ae",
+        "type": "ui_group",
+        "name": "Sensor Values",
+        "tab": "a835b380b37b8ac7",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ba785d58fddc3775",
+        "type": "ui_group",
+        "name": "Edit Value",
+        "tab": "a835b380b37b8ac7",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f5196dfd285c618a",
+        "type": "ui_group",
+        "name": "New Value",
+        "tab": "a835b380b37b8ac7",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a835b380b37b8ac7",
+        "type": "ui_tab",
+        "name": "Database",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
