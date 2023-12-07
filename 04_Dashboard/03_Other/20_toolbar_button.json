@@ -1,0 +1,44 @@
+[
+    {
+        "id": "30bd611b7801b225",
+        "type": "ui_template",
+        "z": "ab7cdbcd4ebd23cc",
+        "group": "272a3499f4923c2d",
+        "name": "",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<script>\n\n    (function(scope){\n\n        //Define section to add button\n        let obj = document.querySelector(\".md-toolbar-tools\")\n\n        let btn = document.createElement(\"button\")\n        btn.innerHTML = \"Test\"\n        btn.id = \"button\"\n        btn.style.margin = \"5px 5px 5px auto\"\n\n        obj.appendChild(btn)\n\n        console.log(\"Hello\")\n\n        //Get infomation from button to the payload\n        btn.addEventListener(\"click\", ()=>{\n            scope.send({payload:true})\n        })\n\n    })(scope)\n\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "81e7a2032e985f82"
+            ]
+        ]
+    },
+    {
+        "id": "272a3499f4923c2d",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "e6990231ea48c64c",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e6990231ea48c64c",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
