@@ -1,0 +1,235 @@
+[
+    {
+        "id": "71c5e704caf3e662",
+        "type": "tab",
+        "label": "Download Data",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ed7a283cfedf6750",
+        "type": "ui_button",
+        "z": "71c5e704caf3e662",
+        "name": "",
+        "group": "aebfe53db41988ae",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Download Data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-download",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 250,
+        "y": 320,
+        "wires": [
+            [
+                "dcecf3789945b372"
+            ]
+        ]
+    },
+    {
+        "id": "dcecf3789945b372",
+        "type": "function",
+        "z": "71c5e704caf3e662",
+        "name": "selectAll",
+        "func": "msg.topic = \"SELECT * FROM sensor_values;\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 320,
+        "wires": [
+            [
+                "01e754076f463241"
+            ]
+        ]
+    },
+    {
+        "id": "01e754076f463241",
+        "type": "mysql",
+        "z": "71c5e704caf3e662",
+        "mydb": "eff4ebb7767e4907",
+        "name": "",
+        "x": 670,
+        "y": 320,
+        "wires": [
+            [
+                "d3eda05efa7375d5"
+            ]
+        ]
+    },
+    {
+        "id": "d3eda05efa7375d5",
+        "type": "csv",
+        "z": "71c5e704caf3e662",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "id, timestamp, value",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 850,
+        "y": 320,
+        "wires": [
+            [
+                "7376f25048afd4b0"
+            ]
+        ]
+    },
+    {
+        "id": "7376f25048afd4b0",
+        "type": "function",
+        "z": "71c5e704caf3e662",
+        "name": "filePath",
+        "func": "msg.path = \"/data/static/files/sensor_values.csv\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 320,
+        "wires": [
+            [
+                "e777b825e7761e30"
+            ]
+        ]
+    },
+    {
+        "id": "e777b825e7761e30",
+        "type": "file",
+        "z": "71c5e704caf3e662",
+        "name": "",
+        "filename": "path",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 1240,
+        "y": 320,
+        "wires": [
+            [
+                "510b8365ad3713f1"
+            ]
+        ]
+    },
+    {
+        "id": "510b8365ad3713f1",
+        "type": "trigger",
+        "z": "71c5e704caf3e662",
+        "name": "",
+        "op1": "open",
+        "op2": "reset",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1460,
+        "y": 320,
+        "wires": [
+            [
+                "0944da78de25bf2d"
+            ]
+        ]
+    },
+    {
+        "id": "0944da78de25bf2d",
+        "type": "change",
+        "z": "71c5e704caf3e662",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "command",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1710,
+        "y": 320,
+        "wires": [
+            [
+                "632d085bf037f46c"
+            ]
+        ]
+    },
+    {
+        "id": "632d085bf037f46c",
+        "type": "ui_template",
+        "z": "71c5e704caf3e662",
+        "group": "aebfe53db41988ae",
+        "name": "",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "format": "<script>\n    (function(scope) {\n        scope.$watch('msg', function(msg) {\n            if (msg.payload == \"open\") {\n                window.open(\"http://localhost:1880/files/sensor_values.csv\", \"_blank\")\n            }\n        })\n    })(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1940,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aebfe53db41988ae",
+        "type": "ui_group",
+        "name": "Sensor Values",
+        "tab": "a835b380b37b8ac7",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "eff4ebb7767e4907",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "my_sql",
+        "port": "3306",
+        "db": "tutorial",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "a835b380b37b8ac7",
+        "type": "ui_tab",
+        "name": "Database",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
