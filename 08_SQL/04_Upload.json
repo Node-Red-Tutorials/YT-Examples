@@ -1,0 +1,314 @@
+[
+    {
+        "id": "08899be394cda637",
+        "type": "tab",
+        "label": "Upload Data",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2463d2acab714098",
+        "type": "ui_upload",
+        "z": "08899be394cda637",
+        "group": "f5196dfd285c618a",
+        "title": "Upload CSV",
+        "accept": ".csv",
+        "name": "",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "chunk": 256,
+        "transfer": "binary",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "12971484da8ab229"
+            ]
+        ]
+    },
+    {
+        "id": "12971484da8ab229",
+        "type": "switch",
+        "z": "08899be394cda637",
+        "name": "check for csv format",
+        "property": "file.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "text/csv",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "a2f0cd441d43ce09"
+            ],
+            [
+                "0e9aa1858211b785"
+            ]
+        ]
+    },
+    {
+        "id": "0e9aa1858211b785",
+        "type": "change",
+        "z": "08899be394cda637",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "You can only umpload \".csv\" files",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Wrong File Type",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 200,
+        "wires": [
+            [
+                "dac4f719b29e8f99"
+            ]
+        ]
+    },
+    {
+        "id": "dac4f719b29e8f99",
+        "type": "ui_toast",
+        "z": "08899be394cda637",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 830,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a2f0cd441d43ce09",
+        "type": "function",
+        "z": "08899be394cda637",
+        "name": "preprocessing",
+        "func": "var inp = (msg.payload).toString()\n\n// Delete unwanted symbols from strings\nmsg.payload = inp.replaceAll('\"', '')\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [
+                "08607c8d27e62da3"
+            ]
+        ]
+    },
+    {
+        "id": "08607c8d27e62da3",
+        "type": "csv",
+        "z": "08899be394cda637",
+        "name": "",
+        "sep": ",",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 830,
+        "y": 140,
+        "wires": [
+            [
+                "c8026e12b7b197c2"
+            ]
+        ]
+    },
+    {
+        "id": "c8026e12b7b197c2",
+        "type": "change",
+        "z": "08899be394cda637",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "csv_content",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1060,
+        "y": 140,
+        "wires": [
+            [
+                "9e01dee70d741951"
+            ]
+        ]
+    },
+    {
+        "id": "9e01dee70d741951",
+        "type": "function",
+        "z": "08899be394cda637",
+        "name": "getColumnNames",
+        "func": "msg.topic = \"SHOW COLUMNS FROM sensor_values;\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 140,
+        "wires": [
+            [
+                "960a56adb41a4cac"
+            ]
+        ]
+    },
+    {
+        "id": "960a56adb41a4cac",
+        "type": "mysql",
+        "z": "08899be394cda637",
+        "mydb": "eff4ebb7767e4907",
+        "name": "",
+        "x": 1550,
+        "y": 140,
+        "wires": [
+            [
+                "dbeb4f4f02ff94aa"
+            ]
+        ]
+    },
+    {
+        "id": "dbeb4f4f02ff94aa",
+        "type": "function",
+        "z": "08899be394cda637",
+        "name": "columnNames",
+        "func": "const inp = msg.payload;\n\nvar column_names = []\n\n// Filter out unwanted columns (id)\nfor (let obj of inp) {\n    if (obj.Field === \"id\") {\n        continue\n    }\n\n    column_names.push(obj)\n}\n\nflow.set(\"column_names\", column_names)\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1760,
+        "y": 140,
+        "wires": [
+            [
+                "a234147746baac93"
+            ]
+        ]
+    },
+    {
+        "id": "a234147746baac93",
+        "type": "function",
+        "z": "08899be394cda637",
+        "name": "insertValue",
+        "func": "const column_names = flow.get(\"column_names\") || undefined;\nconst csv_content = flow.get(\"csv_content\") || undefined;\n\nif (column_names === undefined) {\n    node.error(\"flow.column_names is undefined\")\n    return void 0\n}\n\nif (csv_content === undefined) {\n    node.error(\"flow.csv_content is undefined\")\n    return void 0\n}\n\n// Get datatype from column_names\nvar column_properties = {}\n\nfor (let obj of column_names) {\n    column_properties[obj[\"Field\"]] = obj[\"Type\"]\n}\n\n// Generate SQL Query\nvar query_array = []\n\nfor (let obj of csv_content) {\n    let column_names = []\n    let values = []\n\n    for (let column in obj) {\n        if (column in column_properties) {\n            let datatype = column_properties[column]\n\n            column_names.push(column)\n\n            // Format values when they are of type timestamp\n            if (datatype === \"timestamp\") {\n                let timestamp = new Date(obj[column])\n                timestamp.setHours(timestamp.getHours() + 1)\n                values.push(`FROM_UNIXTIME(${timestamp.getTime() / 1000})`)\n            } else {\n                values.push(obj[column])\n            }\n        }\n    }\n    let query = `INSERT INTO sensor_values (${column_names.join(\",\")}) VALUES (${values.join(\",\")})`\n    query_array.push(query)\n}\n\nmsg.topic = query_array.join(\";\")\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1990,
+        "y": 140,
+        "wires": [
+            [
+                "c0a26ac316244dda"
+            ]
+        ]
+    },
+    {
+        "id": "c0a26ac316244dda",
+        "type": "mysql",
+        "z": "08899be394cda637",
+        "mydb": "eff4ebb7767e4907",
+        "name": "",
+        "x": 2200,
+        "y": 140,
+        "wires": [
+            [
+                "b190a088ca6412c1"
+            ]
+        ]
+    },
+    {
+        "id": "b190a088ca6412c1",
+        "type": "link out",
+        "z": "08899be394cda637",
+        "name": "UploadedData",
+        "mode": "link",
+        "links": [
+            "d0e8079f13bbadc0"
+        ],
+        "x": 2345,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f5196dfd285c618a",
+        "type": "ui_group",
+        "name": "New Value",
+        "tab": "a835b380b37b8ac7",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "eff4ebb7767e4907",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "my_sql",
+        "port": "3306",
+        "db": "tutorial",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "a835b380b37b8ac7",
+        "type": "ui_tab",
+        "name": "Database",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
