@@ -1,0 +1,210 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8b3364bd4e745821",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "780d3622f86e7d7c",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Refresh Data",
+        "tooltip": "Load Data from Database",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-refresh",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [
+                "49dc340bd4d63a8c"
+            ]
+        ]
+    },
+    {
+        "id": "49dc340bd4d63a8c",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "Get Sensor Values",
+        "func": "msg.topic = \"SELECT * FROM sensor_values;\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 200,
+        "wires": [
+            [
+                "e8382d6a1b857b0d"
+            ]
+        ]
+    },
+    {
+        "id": "e8382d6a1b857b0d",
+        "type": "mysql",
+        "z": "f6f2187d.f17ca8",
+        "mydb": "0d1c8d3322f61aa7",
+        "name": "",
+        "x": 730,
+        "y": 200,
+        "wires": [
+            [
+                "178f15e897844867",
+                "da3cae2058f3328b"
+            ]
+        ]
+    },
+    {
+        "id": "178f15e897844867",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "2a29e091c298434b",
+        "type": "ui_chart",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "780d3622f86e7d7c",
+        "order": 1,
+        "width": 10,
+        "height": 6,
+        "label": "Values",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "No Data Available",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1150,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e01f5c662f4017ad",
+        "type": "ui_button",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "780d3622f86e7d7c",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Delete Chart Data",
+        "tooltip": "Deletes Data in Chart",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "fa-trash",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 870,
+        "y": 140,
+        "wires": [
+            [
+                "2a29e091c298434b"
+            ]
+        ]
+    },
+    {
+        "id": "da3cae2058f3328b",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "Plot DB Data",
+        "func": "const inp = msg.payload;\n\n// Create empty chart object\nvar outObj = [{\n    series: [\"Sensor Values\"],\n    data: [[]],\n    lables: [\"\"]\n}]\n\n// Fill chart Object with Data\nfor (let item of inp) {\n    outObj[0].data[0].push({\n        x: item.timestamp,\n        y: item.values\n    })\n}\n\nmsg.payload = outObj;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 200,
+        "wires": [
+            [
+                "2a29e091c298434b"
+            ]
+        ]
+    },
+    {
+        "id": "780d3622f86e7d7c",
+        "type": "ui_group",
+        "name": "Sensor Values",
+        "tab": "6d0b5357286648fe",
+        "order": 1,
+        "disp": true,
+        "width": 10,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0d1c8d3322f61aa7",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "my_sql",
+        "port": "3306",
+        "db": "development",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "6d0b5357286648fe",
+        "type": "ui_tab",
+        "name": "DB",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
